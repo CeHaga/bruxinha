@@ -12,7 +12,7 @@ public class WeirdEnemy : EnemyController
 	{
 		if (t < 225)
 		{
-			Vector2 position = new Vector2(120 - t / 2, -Mathf.Sin(t / 90 * 2 * Mathf.PI) * 25);
+			Vector2 position = new Vector2(120 - t / 2, Mathf.Sin(t / 90 * 2 * Mathf.PI) * 25);
 			return new EnemyState(position, flying);
 		}
 		if (t < 300)
