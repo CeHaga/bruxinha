@@ -2,40 +2,54 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public struct EnemyState
+{
+	public Vector2? position;
+	public AnimationClip animation;
+
+	public EnemyState(Vector2? position, AnimationClip animation)
+	{
+		this.position = position;
+		this.animation = animation;
+	}
+}
+
 public abstract class EnemyController : MonoBehaviour
 {
-	[SerializeField] private float speed = 0.5f;
-	
-	protected Rigidbody2D rb;
-	private float t;
+	private Animator animator;
+	private Rigidbody2D rb;
 	private int t0;
-	
-	private void Awake() {
+	private bool isDying;
+
+	private void Awake()
+	{
+		animator = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody2D>();
-		t = 0;
 		t0 = Time.frameCount;
+		isDying = false;
 	}
-	
-	// private void Start() {
-	// 	StartCoroutine(MoveCoroutine());
-	// }
-	
-	private void Update() {
-		// t += Time.deltaTime;
-		t = Time.frameCount - t0;
-		Vector2 movement = Move(t);
-		rb.position = movement;
-	}
-	
-	private IEnumerator MoveCoroutine() {
-		while(true)
+
+	private void Update()
+	{
+		if (isDying) return;
+		float t = Time.frameCount - t0;
+		EnemyState state = Move(t);
+		if (state.position != null)
 		{
-			t++;
-			Vector2 movement = Move(t);
-			rb.position = movement;
-			yield return null;
+			animator.Play(state.animation.name);
+			rb.position = (Vector2)state.position;
+			return;
 		}
+		isDying = true;
+		StartCoroutine(PlayDyingAnimation(state.animation));
 	}
-	
-	public abstract Vector2 Move(float t);
+
+	private IEnumerator PlayDyingAnimation(AnimationClip animation)
+	{
+		animator.Play(animation.name);
+		yield return new WaitForSeconds(animation.length);
+		Destroy(gameObject);
+	}
+
+	public abstract EnemyState Move(float t);
 }

@@ -4,14 +4,27 @@ using UnityEngine;
 
 public class WeirdEnemy : EnemyController
 {
-	public override Vector2 Move(float t)
+	[SerializeField] private AnimationClip idle;
+	[SerializeField] private AnimationClip flying;
+	[SerializeField] private AnimationClip dying;
+
+	public override EnemyState Move(float t)
 	{
 		if (t < 225)
-			return new Vector2(120 - t / 2, Mathf.Sin(t / 90) * 25);
+		{
+			Vector2 position = new Vector2(120 - t / 2, -Mathf.Sin(t / 90 * 2 * Mathf.PI) * 25);
+			return new EnemyState(position, flying);
+		}
 		if (t < 300)
-			return new Vector2(7.5f, 0);
-		if (t < 430)
-			return new Vector2(7.5f - (t - 300), 0);
-		return new Vector2(-1000, -1000);
+		{
+			Vector2 position = new Vector2(7.5f, 0);
+			return new EnemyState(position, idle);
+		}
+		if (t < 420)
+		{
+			Vector2 position = new Vector2(7.5f - (t - 300), 0);
+			return new EnemyState(position, flying);
+		}
+		return new EnemyState(null, dying);
 	}
 }

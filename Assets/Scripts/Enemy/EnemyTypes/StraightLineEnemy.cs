@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class StraightLineEnemy : EnemyController
 {
-	public override Vector2 Move(float t)
+	[SerializeField] private AnimationClip flying;
+	[SerializeField] private AnimationClip dying;
+
+	public override EnemyState Move(float t)
 	{
-		return new Vector2(120 - t, 0);
+		if (t < 240)
+		{
+			Vector2 position = new Vector2(120 - t, 0);
+			return new EnemyState(position, flying);
+		}
+		return new EnemyState(null, dying);
 	}
 }

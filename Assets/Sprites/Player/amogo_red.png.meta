@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 697dfb0c731a3534491e0c52339e9582
+guid: b63958216e4a9ba4bb04b59485351812
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,49 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: amogo_0
+      name: amogo_red_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d08e4f09cda64114683dbca2a20a6d7d
+      internalID: -271533407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amogo_red_1
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 16
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a72b11389eb791e4280d9d570b221599
+      internalID: -23507639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amogo_red_2
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +166,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d43b0c99f08873541ac091044623922b
-      internalID: 62951335
+      spriteID: e1fbc3aa32ec4644892b887788463c29
+      internalID: 1091055405
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: amogo_1
+      name: amogo_red_3
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e60c06afa364fc41be2305e71197931
+      internalID: 197904460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amogo_red_4
       rect:
         serializedVersion: 2
         x: 0
@@ -145,8 +208,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a71a36becfc6ee04ebde42265083b36a
-      internalID: -1817170387
+      spriteID: ebed76839b1bdcc4da0335560f7d0c94
+      internalID: 1190755414
       vertices: []
       indices: 
       edges: []
@@ -162,8 +225,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      amogo_0: 62951335
-      amogo_1: -1817170387
+      amogo_red_0: -271533407
+      amogo_red_1: -23507639
+      amogo_red_2: 1091055405
+      amogo_red_3: 197904460
+      amogo_red_4: 1190755414
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
