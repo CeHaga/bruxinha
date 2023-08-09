@@ -19,7 +19,7 @@ public class EnemySpawner : MonoBehaviour
         {
             enemyPools[i] = createObjectPool(enemyPrefabs[i], i, 10, 20);
         }
-        InvokeRepeating(nameof(Spawn), 0, 1);
+        InvokeRepeating(nameof(Spawn), 0, 3);
     }
 
     private ObjectPool<EnemyController> createObjectPool(EnemyController prefab, int enemyType, int size, int maxSize)
@@ -27,14 +27,13 @@ public class EnemySpawner : MonoBehaviour
         return new ObjectPool<EnemyController>(() =>
         {
             var enemy = Instantiate(prefab);
-            float offset = Random.Range(-80, 80);
-            enemy.Init(offset, (enemy) => KillEnemy(enemy, enemyType));
+            enemy.OnCreateObject((enemy) => KillEnemy(enemy, enemyType));
             return enemy;
         }, (enemy) =>
         {
             enemy.gameObject.SetActive(true);
             float offset = Random.Range(-80, 80);
-            enemy.Init(offset);
+            enemy.OnReuseObject(offset);
         }, (enemy) =>
         {
             enemy.gameObject.SetActive(false);

@@ -30,10 +30,14 @@ public abstract class EnemyController : MonoBehaviour
 		rb = GetComponent<Rigidbody2D>();
 	}
 
-	public void Init(float yOffset, Action<EnemyController> onEnemyKilled = null)
+	public void OnCreateObject(Action<EnemyController> onEnemyKilled)
+	{
+		this.onEnemyKilled = onEnemyKilled;
+	}
+
+	public void OnReuseObject(float yOffset)
 	{
 		this.yOffset = yOffset;
-		this.onEnemyKilled = onEnemyKilled ?? this.onEnemyKilled;
 		transform.position = new Vector2(256, 256);
 		isDying = false;
 		t0 = Time.frameCount;
