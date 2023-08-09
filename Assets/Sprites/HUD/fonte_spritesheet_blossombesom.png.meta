@@ -1,0 +1,1183 @@
+fileFormatVersion: 2
+guid: 8b245d072ed1ed24bab963c3913f64b7
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 772
+        width: 9
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c0c27e53b6255945b09efcbbf194e02
+      internalID: 907097389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_1
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 756
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c538d01b548fac469c0cce0e452aec4
+      internalID: -1192241754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_2
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 740
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe5a2d0d50dec8e469608290bfbbcd39
+      internalID: 824284771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_3
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 724
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ace896e6e57fd04abac8b93df5246ee
+      internalID: 1213869526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_4
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 708
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7984d363ebe647b4cb822fab982dfb22
+      internalID: 1625602496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_5
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 692
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2689831e09522bd44aba29558ce8c958
+      internalID: -141102394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_6
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 672
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60775fb0939c8694598856a5275336bb
+      internalID: -898570508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_7
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 660
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4323214ff949b14ea309c578df46200
+      internalID: 87585421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_8
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 652
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2ec68409ab868d438499b17dfb17900
+      internalID: 1447328276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_9
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 644
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ccc9740d04f37640b1e89eb89483838
+      internalID: -2058276814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_10
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 636
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65185abf00b778541af3744fcbf53533
+      internalID: -2068153593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_11
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 624
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8cd5dfa36a903744bca280d34a2cb99
+      internalID: -651042837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_12
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 612
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 769542b5f1c14b54c9966aed25e219ba
+      internalID: 1111607162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_13
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 596
+        width: 4
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e81d553623e6fc24187efe31b8013770
+      internalID: 984671802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_14
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 579
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f6179953a814074bb83ee04e3dea354
+      internalID: -43814233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_15
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 564
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd2f83f8765ec78469474339a78fe654
+      internalID: 2136863722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_16
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 548
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 102fbf0361282804fb99290b6de65dae
+      internalID: -964621898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_17
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 528
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b9077f24cfcbef4cb9bbb432a04135f
+      internalID: 2065323150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_18
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 512
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d42c7c071f3f054b8317f077e760e1a
+      internalID: 57893500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_19
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 500
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8489c3ac2f5d322498d48b7fcb1cc4dc
+      internalID: -24305565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_20
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 484
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 456839f28d76c3d468d99c9d574f8e03
+      internalID: 1699652887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_21
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 468
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b91f247f138041e4d802e3bf62b21627
+      internalID: -1490390023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_22
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 452
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8dcfe16f81cd95479b17a3f513cd663
+      internalID: -1540424272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_23
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 436
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e58cb4056382bd34b8ad9e6b4fdfcfe6
+      internalID: -312914677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_24
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 420
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8e1a465c0257524eb6bba5dc3c88906
+      internalID: -2075039404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_25
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 404
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97404dbe2bd747f4b987bfbe7706b67f
+      internalID: 12081927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_26
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 384
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d97dece9e2dabf458e8a05c9d9153ab
+      internalID: 1984636924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_27
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 372
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7e14122cf3910d40abfe2a16437176f
+      internalID: 1412275340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_28
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 356
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef301419293fa29419f58ab9b92fb9e5
+      internalID: 1772897514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_29
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 337
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23fe265f646c3964a83324fa16b51461
+      internalID: 1631280063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_30
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 328
+        width: 4
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ede0b1d8fca65f64397e966fc940006a
+      internalID: -1815633102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_31
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 323
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2acd7871d07ea854cad2fd7085079a9a
+      internalID: 1744784995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_32
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 311
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 503b51d30ec2a714bacc57171a805182
+      internalID: -810384273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_33
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 306
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de1f0343ed71d354e91e247a858cbb87
+      internalID: -2077916887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_34
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 292
+        width: 8
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e70184e44e849ba48ac7bcc319ad2c46
+      internalID: 1507363611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_35
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 276
+        width: 8
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2050d0c483ba82c4e89087c1e6738be6
+      internalID: 1439048138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_36
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 260
+        width: 8
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6e6238f488900945a548c4410f65ac7
+      internalID: -757997810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_37
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 244
+        width: 8
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8874e6482a6c21048a8a9a1c9598c683
+      internalID: -1567518661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_38
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 228
+        width: 8
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51ff3c4305e04d943a216fdf27c9125e
+      internalID: -1254214812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_39
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 212
+        width: 8
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8201d09447a3c2c48b12dfe9cb457225
+      internalID: 1268330456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_40
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 196
+        width: 8
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3f66450f6983a445ad257155f474171
+      internalID: -663683200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_41
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 180
+        width: 8
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27163ef81aead8241bd695ea37656879
+      internalID: 1036286133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_42
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 164
+        width: 8
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed86aca72fe3cab47bd87b985894bd31
+      internalID: -1766950286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_43
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 148
+        width: 8
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35c7b51a5d4c6464eab80d8aedec24f6
+      internalID: -897341286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_44
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 133
+        width: 5
+        height: 5
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac162a2e56ec28649b5e1c1ef7e5f4a0
+      internalID: -1735145563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_45
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 116
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bb3d18aa143bff41bf22baf27e7e642
+      internalID: -1138566113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_46
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 100
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 720339abd2f0e574a9d47d35288d5f86
+      internalID: -2056756106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fonte_spritesheet_blossombesom_47
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 4
+        width: 8
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f8141c209cabd2488fe2482e73b702c
+      internalID: 871540617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      fonte_spritesheet_blossombesom_0: 907097389
+      fonte_spritesheet_blossombesom_1: -1192241754
+      fonte_spritesheet_blossombesom_10: -2068153593
+      fonte_spritesheet_blossombesom_11: -651042837
+      fonte_spritesheet_blossombesom_12: 1111607162
+      fonte_spritesheet_blossombesom_13: 984671802
+      fonte_spritesheet_blossombesom_14: -43814233
+      fonte_spritesheet_blossombesom_15: 2136863722
+      fonte_spritesheet_blossombesom_16: -964621898
+      fonte_spritesheet_blossombesom_17: 2065323150
+      fonte_spritesheet_blossombesom_18: 57893500
+      fonte_spritesheet_blossombesom_19: -24305565
+      fonte_spritesheet_blossombesom_2: 824284771
+      fonte_spritesheet_blossombesom_20: 1699652887
+      fonte_spritesheet_blossombesom_21: -1490390023
+      fonte_spritesheet_blossombesom_22: -1540424272
+      fonte_spritesheet_blossombesom_23: -312914677
+      fonte_spritesheet_blossombesom_24: -2075039404
+      fonte_spritesheet_blossombesom_25: 12081927
+      fonte_spritesheet_blossombesom_26: 1984636924
+      fonte_spritesheet_blossombesom_27: 1412275340
+      fonte_spritesheet_blossombesom_28: 1772897514
+      fonte_spritesheet_blossombesom_29: 1631280063
+      fonte_spritesheet_blossombesom_3: 1213869526
+      fonte_spritesheet_blossombesom_30: -1815633102
+      fonte_spritesheet_blossombesom_31: 1744784995
+      fonte_spritesheet_blossombesom_32: -810384273
+      fonte_spritesheet_blossombesom_33: -2077916887
+      fonte_spritesheet_blossombesom_34: 1507363611
+      fonte_spritesheet_blossombesom_35: 1439048138
+      fonte_spritesheet_blossombesom_36: -757997810
+      fonte_spritesheet_blossombesom_37: -1567518661
+      fonte_spritesheet_blossombesom_38: -1254214812
+      fonte_spritesheet_blossombesom_39: 1268330456
+      fonte_spritesheet_blossombesom_4: 1625602496
+      fonte_spritesheet_blossombesom_40: -663683200
+      fonte_spritesheet_blossombesom_41: 1036286133
+      fonte_spritesheet_blossombesom_42: -1766950286
+      fonte_spritesheet_blossombesom_43: -897341286
+      fonte_spritesheet_blossombesom_44: -1735145563
+      fonte_spritesheet_blossombesom_45: -1138566113
+      fonte_spritesheet_blossombesom_46: -2056756106
+      fonte_spritesheet_blossombesom_47: 871540617
+      fonte_spritesheet_blossombesom_5: -141102394
+      fonte_spritesheet_blossombesom_6: -898570508
+      fonte_spritesheet_blossombesom_7: 87585421
+      fonte_spritesheet_blossombesom_8: 1447328276
+      fonte_spritesheet_blossombesom_9: -2058276814
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
