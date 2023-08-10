@@ -16,14 +16,17 @@ public class PlayerController : MonoBehaviour
 
 	private Rigidbody2D rb;
 	private Vector2 moveInput;
+	private bool isDying;
 
 	private void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
+		isDying = false;
 	}
 
 	private void FixedUpdate()
 	{
+		if (isDying) return;
 		// Move player
 		rb.velocity = moveInput * speed;
 		if (moveInput.x != 0 || moveInput.y != 0)
@@ -38,5 +41,19 @@ public class PlayerController : MonoBehaviour
 	public void OnMove(InputAction.CallbackContext context)
 	{
 		moveInput = context.ReadValue<Vector2>();
+	}
+
+	public void OnDeath()
+	{
+		rb.velocity = Vector2.zero;
+		isDying = true;
+		StartCoroutine(PlayDyingAnimation());
+	}
+
+	private IEnumerator PlayDyingAnimation()
+	{
+		animator.Play(dying.name);
+		yield return new WaitForSeconds(dying.length);
+		Destroy(gameObject);
 	}
 }

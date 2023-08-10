@@ -23,7 +23,7 @@ public class BulletSpawner : MonoBehaviour
         return new ObjectPool<BulletController>(() =>
         {
             var bullet = Instantiate(bulletScriptable.BulletPrefab);
-            bullet.OnCreateObject((bullet, healthManager) => BulletHit(bullet, healthManager, bulletType));
+            bullet.OnCreateObject((bullet) => BulletHit(bullet, bulletType));
             return bullet;
         }, (bullet) =>
         {
@@ -44,16 +44,8 @@ public class BulletSpawner : MonoBehaviour
         bullet.OnReuseObject(startPosition);
     }
 
-    private void BulletHit(BulletController bullet, HealthManager target, int bulletType)
+    private void BulletHit(BulletController bullet, int bulletType)
     {
         bulletPools[bulletType].Release(bullet);
-        string bulletName = bulletScriptables[bulletType].ToString();
-        if (target == null)
-        {
-            Debug.Log($"{bulletName} missed");
-            return;
-        }
-        Debug.Log($"{bulletName} hit {target.name}");
-
     }
 }

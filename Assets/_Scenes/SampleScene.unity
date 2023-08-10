@@ -182,10 +182,10 @@ GameObject:
   - component: {fileID: 604516128}
   - component: {fileID: 604516127}
   - component: {fileID: 604516131}
+  - component: {fileID: 604516133}
   - component: {fileID: 604516129}
   - component: {fileID: 604516130}
   - component: {fileID: 604516132}
-  - component: {fileID: 604516133}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -473,6 +473,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a13b228ad8f416a438eb6d3ec10468c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 3
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 604516127}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  invincibleTime: 2
+  damage: 0
+  isFragile: 0
   collisionTags:
   - Enemy
 --- !u!1 &648636150

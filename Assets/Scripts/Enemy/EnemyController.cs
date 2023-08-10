@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using System;
 
 public struct EnemyState
@@ -17,20 +18,23 @@ public struct EnemyState
 
 public abstract class EnemyController : MonoBehaviour
 {
+	public UnityEvent ResetHealth;
 	private Animator animator;
 	private Rigidbody2D rb;
+	private Collider2D collider2d;
 	private int t0;
 	private bool isDying;
 	private float yOffset;
-	private Action<EnemyController> onEnemyKilled;
+	private Action<EnemyController, bool> onEnemyKilled;
 
 	private void Awake()
 	{
 		animator = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody2D>();
+		collider2d = GetComponent<Collider2D>();
 	}
 
-	public void OnCreateObject(Action<EnemyController> onEnemyKilled)
+	public void OnCreateObject(Action<EnemyController, bool> onEnemyKilled)
 	{
 		this.onEnemyKilled = onEnemyKilled;
 	}
@@ -41,6 +45,8 @@ public abstract class EnemyController : MonoBehaviour
 		transform.position = new Vector2(256, 256);
 		isDying = false;
 		t0 = Time.frameCount;
+		ChangeCollisions(true);
+		ResetHealth?.Invoke();
 	}
 
 	private void Update()
@@ -57,16 +63,28 @@ public abstract class EnemyController : MonoBehaviour
 			rb.position = position;
 			return;
 		}
-		isDying = true;
 		StartCoroutine(PlayDyingAnimation(state.animation));
 	}
 
-	private IEnumerator PlayDyingAnimation(AnimationClip animation)
+	private IEnumerator PlayDyingAnimation(AnimationClip animation, bool didPlayerKill = false)
 	{
+		isDying = true;
+		ChangeCollisions(false);
 		animator.Play(animation.name);
 		yield return new WaitForSeconds(animation.length);
-		onEnemyKilled?.Invoke(this);
+		onEnemyKilled?.Invoke(this, didPlayerKill);
+	}
+
+	public void OnPlayerKill()
+	{
+		StartCoroutine(PlayDyingAnimation(GetDyingAnimation(), true));
+	}
+
+	private void ChangeCollisions(bool enabled)
+	{
+		collider2d.enabled = enabled;
 	}
 
 	public abstract EnemyState Move(float t);
+	public abstract AnimationClip GetDyingAnimation();
 }
