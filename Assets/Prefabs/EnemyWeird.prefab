@@ -95,6 +95,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  invincibleTime: 0
   damage: 1
   isFragile: 0
   collisionTags:
@@ -176,7 +177,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!95 &1338042915615047540
 Animator:
