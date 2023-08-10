@@ -34,7 +34,7 @@ public abstract class BulletController : MonoBehaviour
     {
         float t = Time.frameCount - t0;
         Vector2 position = Move(t) + startPosition;
-        if (position.x > 240 || position.x < -240 || position.y > 160 || position.y < -160)
+        if (position.x > 120 || position.x < -120 || position.y > 80 || position.y < -80)
         {
             onBulletHit(this, null);
         }
