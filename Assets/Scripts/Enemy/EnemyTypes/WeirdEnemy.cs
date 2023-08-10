@@ -13,19 +13,19 @@ public class WeirdEnemy : EnemyController
 		if (t < 225)
 		{
 			Vector2 position = new Vector2(120 - t / 2, Mathf.Sin(t / 90 * 2 * Mathf.PI) * 25);
-			return new EnemyState(position, flying);
+			return new EnemyState(position, flying, true);
 		}
 		if (t < 300)
 		{
 			Vector2 position = new Vector2(7.5f, 0);
-			return new EnemyState(position, idle);
+			return new EnemyState(position, idle, true);
 		}
 		if (t < 420)
 		{
 			Vector2 position = new Vector2(7.5f - (t - 300), 0);
-			return new EnemyState(position, flying);
+			return new EnemyState(position, flying, false);
 		}
-		return new EnemyState(null, dying);
+		return new EnemyState(null, dying, false);
 	}
 
 	public override AnimationClip GetDyingAnimation()

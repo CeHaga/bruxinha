@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBullet_StraightLine : BulletController
+public class PlayerBulletStraightLine : BulletController
 {
     public override Vector2 Move(float t)
     {

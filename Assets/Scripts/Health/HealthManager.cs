@@ -21,9 +21,18 @@ public class HealthManager : MonoBehaviour
     [Header("Collision")]
     [SerializeField] private string[] collisionTags;
 
+    [Header("Blinking")]
+    private SpriteRenderer spriteRenderer;
+    [SerializeField] private float blinkingInterval;
+
     private void Awake()
     {
         ResetHealth();
+    }
+
+    private void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     public void ResetHealth()
@@ -80,7 +89,20 @@ public class HealthManager : MonoBehaviour
         {
             Debug.Log($"{gameObject.name} died");
             OnDeath.Invoke();
+            return;
         }
         canTakeDamage = false;
+        StartCoroutine(Blink());
+    }
+
+    private IEnumerator Blink()
+    {
+        while (!canTakeDamage)
+        {
+            spriteRenderer.enabled = false;
+            yield return new WaitForSeconds(blinkingInterval);
+            spriteRenderer.enabled = true;
+            yield return new WaitForSeconds(blinkingInterval);
+        }
     }
 }

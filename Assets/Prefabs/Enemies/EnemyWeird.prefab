@@ -49,6 +49,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 128555abf56d84b4ea6f2d3899f3670f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletScriptables:
+  - {fileID: 11400000, guid: cf0fdd0497110b54c96f7878fce257ae, type: 2}
+  shootInterval: 0.5
   ResetHealth:
     m_PersistentCalls:
       m_Calls:
