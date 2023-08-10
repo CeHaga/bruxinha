@@ -27,4 +27,9 @@ public class WeirdEnemy : EnemyController
 		}
 		return new EnemyState(null, dying);
 	}
+
+	public override AnimationClip GetDyingAnimation()
+	{
+		return dying;
+	}
 }

@@ -16,4 +16,9 @@ public class StraightLineEnemy : EnemyController
 		}
 		return new EnemyState(null, dying);
 	}
+
+	public override AnimationClip GetDyingAnimation()
+	{
+		return dying;
+	}
 }
