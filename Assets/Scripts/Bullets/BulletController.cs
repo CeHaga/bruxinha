@@ -12,7 +12,6 @@ public abstract class BulletController : MonoBehaviour
     private int t0;
     private Vector2 startPosition;
     private Action<BulletController> onBulletHit;
-    [SerializeField] private string[] collisionTags;
 
     private void Awake()
     {

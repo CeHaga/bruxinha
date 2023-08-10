@@ -12,9 +12,9 @@ public class StraightLineEnemy : EnemyController
 		if (t < 240)
 		{
 			Vector2 position = new Vector2(120 - t, 0);
-			return new EnemyState(position, flying);
+			return new EnemyState(position, flying, false);
 		}
-		return new EnemyState(null, dying);
+		return new EnemyState(null, dying, false);
 	}
 
 	public override AnimationClip GetDyingAnimation()

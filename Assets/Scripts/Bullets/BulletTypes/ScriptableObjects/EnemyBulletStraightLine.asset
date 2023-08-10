@@ -10,9 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08b8e14081f894e46880271fc1194232, type: 3}
-  m_Name: PlayerBullet_StraightLine
+  m_Name: EnemyBulletStraightLine
   m_EditorClassIdentifier: 
-  name: Bala Reta
-  bulletPrefab: {fileID: 7886956354197339857, guid: a6ebbf00fec6b4d46aef181ec7aab1e9, type: 3}
-  collisionTags:
-  - Enemy
+  name: Bala Reta do Inimigo
+  bulletPrefab: {fileID: 5759134332980897075, guid: 83b90b58a9fe21642b98aa3ff2c04be4, type: 3}

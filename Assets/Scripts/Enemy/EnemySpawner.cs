@@ -1,11 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Pool;
 
+[System.Serializable]
+public struct EnemySpawnOptions
+{
+    public bool canSpawn;
+    public EnemyController enemyController;
+}
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private EnemyController[] enemyPrefabs;
+    private EnemyController[] enemyPrefabs;
+    [SerializeField] private EnemySpawnOptions[] enemySpawnOptions;
+    [SerializeField] private ShootEvent OnShoot;
 
     [Header("Debug")]
     [SerializeField] private bool logEnemySpawn;
@@ -14,6 +23,10 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
+        enemyPrefabs = enemySpawnOptions
+                        .Where(option => option.canSpawn)
+                        .Select(option => option.enemyController)
+                        .ToArray();
         enemyPools = new ObjectPool<EnemyController>[enemyPrefabs.Length];
         for (int i = 0; i < enemyPrefabs.Length; i++)
         {
@@ -27,20 +40,22 @@ public class EnemySpawner : MonoBehaviour
         return new ObjectPool<EnemyController>(() =>
         {
             var enemy = Instantiate(prefab);
-            enemy.OnCreateObject((enemy, playerKill) => KillEnemy(enemy, enemyType, playerKill));
+            enemy.OnCreateObject(
+                (enemy, playerKill) => KillEnemy(enemy, enemyType, playerKill),
+                (bulletScriptable, position) => OnShoot.Invoke(bulletScriptable, position));
             return enemy;
         }, (enemy) =>
-        {
-            enemy.gameObject.SetActive(true);
-            float offset = Random.Range(-80, 80);
-            enemy.OnReuseObject(offset);
-        }, (enemy) =>
-        {
-            enemy.gameObject.SetActive(false);
-        }, (enemy) =>
-        {
-            Destroy(enemy.gameObject);
-        }, false, size, maxSize);
+            {
+                enemy.gameObject.SetActive(true);
+                float offset = Random.Range(-80, 80);
+                enemy.OnReuseObject(offset);
+            }, (enemy) =>
+            {
+                enemy.gameObject.SetActive(false);
+            }, (enemy) =>
+            {
+                Destroy(enemy.gameObject);
+            }, false, size, maxSize);
     }
 
     private void Spawn()
