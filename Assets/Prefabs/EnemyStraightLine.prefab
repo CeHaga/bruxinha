@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7566176950867158348}
   - component: {fileID: 4047563192223128189}
-  - component: {fileID: 3216627680244253704}
   - component: {fileID: 5278972298941833777}
+  - component: {fileID: 5311032426671216896}
+  - component: {fileID: 3216627680244253704}
   - component: {fileID: 221204954819715410}
   - component: {fileID: 3345745420837390574}
-  - component: {fileID: 5311032426671216896}
   m_Layer: 0
   m_Name: EnemyStraightLine
   m_TagString: Enemy
@@ -89,6 +89,67 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5278972298941833777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935232778473968133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e96ff82a058764241861e7399e54fe54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ResetHealth:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5311032426671216896}
+        m_TargetAssemblyTypeName: HealthManager, Assembly-CSharp
+        m_MethodName: ResetHealth
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  flying: {fileID: 7400000, guid: 806e4dacbd58f97418749e453e17d230, type: 2}
+  dying: {fileID: 7400000, guid: dc4c304aebfccdb49ba20154859480d0, type: 2}
+--- !u!114 &5311032426671216896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935232778473968133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a13b228ad8f416a438eb6d3ec10468c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 2
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5278972298941833777}
+        m_TargetAssemblyTypeName: EnemyController, Assembly-CSharp
+        m_MethodName: OnPlayerKill
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  damage: 1
+  isFragile: 0
+  collisionTags:
+  - PlayerBullet
 --- !u!50 &3216627680244253704
 Rigidbody2D:
   serializedVersion: 4
@@ -116,20 +177,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &5278972298941833777
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1935232778473968133}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e96ff82a058764241861e7399e54fe54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flying: {fileID: 7400000, guid: 806e4dacbd58f97418749e453e17d230, type: 2}
-  dying: {fileID: 7400000, guid: dc4c304aebfccdb49ba20154859480d0, type: 2}
 --- !u!95 &221204954819715410
 Animator:
   serializedVersion: 5
@@ -196,16 +243,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8, y: 8}
   m_EdgeRadius: 0
---- !u!114 &5311032426671216896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1935232778473968133}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a13b228ad8f416a438eb6d3ec10468c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collisionTags: []

@@ -27,7 +27,7 @@ public class EnemySpawner : MonoBehaviour
         return new ObjectPool<EnemyController>(() =>
         {
             var enemy = Instantiate(prefab);
-            enemy.OnCreateObject((enemy) => KillEnemy(enemy, enemyType));
+            enemy.OnCreateObject((enemy, playerKill) => KillEnemy(enemy, enemyType, playerKill));
             return enemy;
         }, (enemy) =>
         {
