@@ -9,7 +9,7 @@ public class HealthManager : MonoBehaviour
     [Header("Health")]
     [SerializeField] private float maxHealth;
     private float currentHealth;
-    [SerializeField] private UnityEvent OnDeath;
+    public UnityEvent OnDeath;
     [SerializeField] private float invincibleTime;
     private float invincibleTimer;
     private bool canTakeDamage;
@@ -25,14 +25,21 @@ public class HealthManager : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     [SerializeField] private float blinkingInterval;
 
-    private void Awake()
-    {
-        ResetHealth();
-    }
-
     private void Start()
     {
+        ResetHealth();
         spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    public void Init(float maxHealth, float invincibleTime, float damage, bool isFragile, string[] collisionTags, float blinkingInterval)
+    {
+        this.maxHealth = maxHealth;
+        this.invincibleTime = invincibleTime;
+        this.damage = damage;
+        this.isFragile = isFragile;
+        this.collisionTags = collisionTags;
+        this.blinkingInterval = blinkingInterval;
+        ResetHealth();
     }
 
     public void ResetHealth()
@@ -55,6 +62,7 @@ public class HealthManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log(other);
         if (!canTakeDamage) return;
         if (Array.IndexOf(collisionTags, other.gameObject.tag) == -1) return;
 
