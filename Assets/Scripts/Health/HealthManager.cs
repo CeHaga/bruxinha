@@ -13,6 +13,7 @@ public class HealthManager : MonoBehaviour
     [SerializeField] private float invincibleTime;
     private float invincibleTimer;
     private bool canTakeDamage;
+    private bool isDying;
 
     [Header("Damage")]
     [SerializeField] private float damage;
@@ -47,6 +48,7 @@ public class HealthManager : MonoBehaviour
         currentHealth = maxHealth;
         canTakeDamage = true;
         invincibleTimer = 0;
+        isDying = false;
     }
 
     private void Update()
@@ -62,7 +64,7 @@ public class HealthManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other);
+        if (isDying) return;
         if (!canTakeDamage) return;
         if (Array.IndexOf(collisionTags, other.gameObject.tag) == -1) return;
 
@@ -97,6 +99,7 @@ public class HealthManager : MonoBehaviour
         {
             Debug.Log($"{gameObject.name} died");
             OnDeath.Invoke();
+            isDying = true;
             return;
         }
         canTakeDamage = false;
