@@ -4,7 +4,7 @@ public class StraightLineEnemy_0 : EnemyController
 {
 	public override EnemyState Move(float t)
 	{
-		if (t < 240)
+		if (t < 250)
 		{
 			Vector2 position = new Vector2(120 - t, 0);
 			return new EnemyState(position, flying, false);

@@ -14,7 +14,7 @@ public class WeirdEnemy_m40 : EnemyController
 			Vector2 position = new Vector2(7.5f, -40);
 			return new EnemyState(position, idle, true);
 		}
-		if (t < 420)
+		if (t < 435)
 		{
 			Vector2 position = new Vector2(7.5f - (t - 300), -40);
 			return new EnemyState(position, flying, false);
