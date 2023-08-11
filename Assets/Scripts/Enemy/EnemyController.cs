@@ -21,14 +21,12 @@ public struct EnemyState
 public abstract class EnemyController : MonoBehaviour
 {
 
-	[Header("Shooting")]
 	private Action<BulletScriptable, Vector2> OnShoot;
 	private bool canShoot;
-	[SerializeField] private BulletScriptable[] bulletScriptables;
-	[SerializeField] private float shootInterval;
+	private BulletScriptable[] bulletScriptables;
+	private float shootInterval;
 
-	[Header("Health")]
-	public UnityEvent ResetHealth;
+	public Action ResetHealth;
 	private Action<EnemyController, bool> onEnemyKilled;
 
 	private Animator animator;
@@ -39,6 +37,9 @@ public abstract class EnemyController : MonoBehaviour
 	private bool isDying;
 	private float yOffset;
 
+	protected AnimationClip idle;
+	protected AnimationClip flying;
+	protected AnimationClip dying;
 
 	private void Awake()
 	{
@@ -48,15 +49,20 @@ public abstract class EnemyController : MonoBehaviour
 		canShoot = false;
 	}
 
-	public void OnCreateObject(Action<EnemyController, bool> onEnemyKilled, Action<BulletScriptable, Vector2> OnShoot)
+	public void OnCreateObject(Action<EnemyController, bool> onEnemyKilled, Action<BulletScriptable, Vector2> OnShoot, BulletScriptable[] bulletScriptables, float shootInterval, AnimationClip idle, AnimationClip flying, AnimationClip dying, Action ResetHealth)
 	{
 		this.onEnemyKilled = onEnemyKilled;
 		this.OnShoot = OnShoot;
+		this.bulletScriptables = bulletScriptables;
+		this.shootInterval = shootInterval;
+		this.idle = idle;
+		this.flying = flying;
+		this.dying = dying;
+		this.ResetHealth = ResetHealth;
 	}
 
-	public void OnReuseObject(float yOffset)
+	public void OnReuseObject()
 	{
-		this.yOffset = yOffset;
 		transform.position = new Vector2(256, 256);
 		isDying = false;
 		t0 = Time.frameCount;
@@ -105,7 +111,7 @@ public abstract class EnemyController : MonoBehaviour
 
 	public void OnPlayerKill()
 	{
-		StartCoroutine(PlayDyingAnimation(GetDyingAnimation(), true));
+		StartCoroutine(PlayDyingAnimation(dying, true));
 	}
 
 	private void ChangeCollisions(bool enabled)
@@ -114,5 +120,4 @@ public abstract class EnemyController : MonoBehaviour
 	}
 
 	public abstract EnemyState Move(float t);
-	public abstract AnimationClip GetDyingAnimation();
 }

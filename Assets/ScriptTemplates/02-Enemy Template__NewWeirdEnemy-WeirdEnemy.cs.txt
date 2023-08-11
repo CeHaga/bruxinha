@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class WeirdEnemy : EnemyController
+public class #SCRIPTNAME# : EnemyController
 {
 	public override EnemyState Move(float t)
 	{

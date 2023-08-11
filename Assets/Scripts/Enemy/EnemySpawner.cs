@@ -8,47 +8,66 @@ using UnityEngine.Pool;
 public struct EnemySpawnOptions
 {
     public bool canSpawn;
-    public EnemyController enemyController;
+    public EnemyPattern enemyPattern;
 }
 public class EnemySpawner : MonoBehaviour
 {
-    private EnemyController[] enemyPrefabs;
-    [SerializeField] private EnemySpawnOptions[] enemySpawnOptions;
+    [Header("Shooting")]
     [SerializeField] private ShootEvent OnShoot;
 
-    [Header("Debug")]
-    [SerializeField] private bool logEnemySpawn;
+    [Header("Spawn")]
+    [SerializeField] private EnemySpawnOptions[] enemySpawnOptions;
+    private EnemySpawnOptions[] validSpawnOptions;
+    [SerializeField] private float spawnInterval;
 
-    private ObjectPool<EnemyController>[] enemyPools;
+    private ObjectPool<EnemyController>[][] enemyPool;
 
     private void Start()
     {
-        enemyPrefabs = enemySpawnOptions
-                        .Where(option => option.canSpawn)
-                        .Select(option => option.enemyController)
-                        .ToArray();
-        enemyPools = new ObjectPool<EnemyController>[enemyPrefabs.Length];
-        for (int i = 0; i < enemyPrefabs.Length; i++)
+        validSpawnOptions = enemySpawnOptions.Where(enemySpawnOption => enemySpawnOption.canSpawn).ToArray();
+
+        enemyPool = new ObjectPool<EnemyController>[validSpawnOptions.Length][];
+        for (int i = 0; i < validSpawnOptions.Length; i++)
         {
-            enemyPools[i] = createObjectPool(enemyPrefabs[i], i, 10, 20);
+            enemyPool[i] = new ObjectPool<EnemyController>[validSpawnOptions[i].enemyPattern.patternData.Length];
+            for (int j = 0; j < validSpawnOptions[i].enemyPattern.patternData.Length; j++)
+            {
+                enemyPool[i][j] = createObjectPool(validSpawnOptions[i].enemyPattern.patternData[j], i, j, 1, 5);
+            }
         }
-        InvokeRepeating(nameof(Spawn), 0, 3);
+
+        StartCoroutine(SpawnPatterns());
     }
 
-    private ObjectPool<EnemyController> createObjectPool(EnemyController prefab, int enemyType, int size, int maxSize)
+    private ObjectPool<EnemyController> createObjectPool(EnemyPatternSpawn enemyPattern, int patternIndex, int enemyIndex, int size, int maxSize)
     {
+        EnemyDefault enemyDefault = enemyPattern.enemyDefault;
         return new ObjectPool<EnemyController>(() =>
         {
-            var enemy = Instantiate(prefab);
-            enemy.OnCreateObject(
-                (enemy, playerKill) => KillEnemy(enemy, enemyType, playerKill),
-                (bulletScriptable, position) => OnShoot.Invoke(bulletScriptable, position));
-            return enemy;
+            GameObject enemy = Instantiate(enemyDefault.prefab);
+            enemy.name = enemyPattern.enemyDefault.enemyName;
+
+            EnemyController enemyController = enemy.AddComponent(enemyPattern.enemyController.GetClass()) as EnemyController;
+            HealthManager healthManager = enemy.GetComponent<HealthManager>();
+
+            healthManager.OnDeath.AddListener(enemyController.OnPlayerKill);
+
+            enemyController.OnCreateObject(
+                (enemy, playerKill) => KillEnemy(enemy, patternIndex, enemyIndex, playerKill),
+                (bulletScriptable, position) => OnShoot.Invoke(bulletScriptable, position),
+                enemyDefault.bulletScriptables,
+                enemyDefault.shootInterval,
+                enemyDefault.idle,
+                enemyDefault.flying,
+                enemyDefault.dying,
+                () => healthManager.ResetHealth()
+            );
+
+            return enemyController;
         }, (enemy) =>
             {
                 enemy.gameObject.SetActive(true);
-                float offset = Random.Range(-80, 80);
-                enemy.OnReuseObject(offset);
+                enemy.OnReuseObject();
             }, (enemy) =>
             {
                 enemy.gameObject.SetActive(false);
@@ -58,15 +77,29 @@ public class EnemySpawner : MonoBehaviour
             }, false, size, maxSize);
     }
 
-    private void Spawn()
+    private IEnumerator SpawnPatterns()
     {
-        int enemyType = Random.Range(0, enemyPrefabs.Length);
-        if (logEnemySpawn) Debug.Log($"Spawning enemy of type {enemyPrefabs[enemyType].name}");
-        enemyPools[enemyType].Get();
+        while (true)
+        {
+            int patternIndex = Random.Range(0, validSpawnOptions.Length);
+            EnemyPattern enemyPattern = validSpawnOptions[patternIndex].enemyPattern;
+            float totalTime = 0;
+            for (int i = 0; i < enemyPattern.patternData.Length; i++)
+            {
+                EnemyPatternSpawn enemyPatternSpawn = enemyPattern.patternData[i];
+
+                float waitingTime = enemyPatternSpawn.spawnTime - totalTime;
+                yield return new WaitForSeconds(waitingTime);
+                totalTime += enemyPatternSpawn.spawnTime;
+
+                enemyPool[patternIndex][i].Get();
+            }
+            yield return new WaitForSeconds(spawnInterval);
+        }
     }
 
-    private void KillEnemy(EnemyController enemy, int enemyType, bool didPlayerKill = false)
+    private void KillEnemy(EnemyController enemy, int patternIndex, int enemyIndex, bool didPlayerKill = false)
     {
-        enemyPools[enemyType].Release(enemy);
+        enemyPool[patternIndex][enemyIndex].Release(enemy);
     }
 }
