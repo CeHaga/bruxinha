@@ -8,11 +8,11 @@ public class PlayerController : MonoBehaviour
 	[Header("Parameters")]
 	[SerializeField] private float speed = 5f;
 
-	[Header("Animations")]
+	/*[Header("Animations")]
 	[SerializeField] private Animator animator;
 	[SerializeField] private AnimationClip idle;
 	[SerializeField] private AnimationClip flying;
-	[SerializeField] private AnimationClip dying;
+	[SerializeField] private AnimationClip dying;*/
 
 	private Rigidbody2D rb;
 	private Vector2 moveInput;
@@ -31,10 +31,10 @@ public class PlayerController : MonoBehaviour
 		rb.velocity = moveInput * speed;
 		if (moveInput.x != 0 || moveInput.y != 0)
 		{
-			animator.Play(flying.name);
+			//animator.Play(flying.name);
 			return;
 		}
-		animator.Play(idle.name);
+		//animator.Play(idle.name);
 		moveInput = Vector2.zero;
 	}
 
@@ -52,8 +52,8 @@ public class PlayerController : MonoBehaviour
 
 	private IEnumerator PlayDyingAnimation()
 	{
-		animator.Play(dying.name);
-		yield return new WaitForSeconds(dying.length);
+		//animator.Play(dying.name);
+		yield return new WaitForSeconds(1);
 		Destroy(gameObject);
 	}
 }
