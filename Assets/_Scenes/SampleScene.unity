@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &178112281
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 178112282}
+  m_Layer: 0
+  m_Name: BulletSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &178112282
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178112281}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 15, y: -7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 604516126}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &505271529
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,7 +266,7 @@ SpriteRenderer:
   m_SortingLayerID: 81683279
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -271533407, guid: b63958216e4a9ba4bb04b59485351812, type: 3}
+  m_Sprite: {fileID: -911896274, guid: 27301353644fa1b45a84e88252e17033, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -258,7 +289,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 178112282}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &604516127
@@ -274,10 +306,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 70
-  animator: {fileID: 604516130}
-  idle: {fileID: 7400000, guid: 3aa1d1681852ca94fb4da52d4005cc3e, type: 2}
-  flying: {fileID: 7400000, guid: f6326d8ea714a0348b210e6fc859656c, type: 2}
-  dying: {fileID: 7400000, guid: 3d6fefca098a70d4e950ed3befcb24b2, type: 2}
 --- !u!114 &604516128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,7 +405,7 @@ Animator:
   m_GameObject: {fileID: 604516124}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1d629189dee111140b3dc4b3fc9ae343, type: 2}
+  m_Controller: {fileID: 9100000, guid: 09b545d12e7abdc46a815274a1a06c70, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -400,6 +428,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38479b0984cb8534f940081f302659f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletSpawnPoint: {fileID: 178112281}
+  animator: {fileID: 604516130}
   bulletScriptables:
   - {fileID: 11400000, guid: 556528bc6cdcbe34a86b05dab862508a, type: 2}
   OnShoot:
@@ -449,18 +479,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 5.742369, y: -3.4953551}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 8, y: 8}
+    oldSize: {x: 33, y: 24}
     newSize: {x: 8, y: 8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 8, y: 8}
+  m_Size: {x: 11.245687, y: 14.99071}
   m_EdgeRadius: 0
 --- !u!114 &604516133
 MonoBehaviour:
