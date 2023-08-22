@@ -19,6 +19,9 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private EnemySpawnOptions[] enemySpawnOptions;
     private EnemySpawnOptions[] validSpawnOptions;
     [SerializeField] private float spawnInterval;
+    [SerializeField] private float spawnMultiplierBonus;
+    private float spawnMultiplier = 1;
+    [SerializeField] private float maxSpawnMultiplier;
 
     private ObjectPool<EnemyController>[][] enemyPool;
 
@@ -89,12 +92,13 @@ public class EnemySpawner : MonoBehaviour
                 EnemyPatternSpawn enemyPatternSpawn = enemyPattern.patternData[i];
 
                 float waitingTime = enemyPatternSpawn.spawnTime - totalTime;
-                yield return new WaitForSeconds(waitingTime);
+                yield return new WaitForSeconds(waitingTime / spawnMultiplier);
                 totalTime += enemyPatternSpawn.spawnTime;
 
                 enemyPool[patternIndex][i].Get();
             }
-            yield return new WaitForSeconds(spawnInterval);
+            yield return new WaitForSeconds(spawnInterval / spawnMultiplier);
+            spawnMultiplier = Mathf.Min(maxSpawnMultiplier, spawnMultiplierBonus + spawnMultiplier);
         }
     }
 
