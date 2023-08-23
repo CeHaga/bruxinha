@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ec450be3c126744a2f9f92c4a65ffc, type: 3}
+  m_Name: StraightLine_40
+  m_EditorClassIdentifier: 
+  enemyName: Amogo Verde
+  prefab: {fileID: 5622947207983978964, guid: e3b1986f173ba5643803846ba4cb1846, type: 3}
+  bulletScriptables: []
+  shootInterval: 0
+  idle: {fileID: 0}
+  flying: {fileID: 7400000, guid: 806e4dacbd58f97418749e453e17d230, type: 2}
+  dying: {fileID: 7400000, guid: dc4c304aebfccdb49ba20154859480d0, type: 2}
