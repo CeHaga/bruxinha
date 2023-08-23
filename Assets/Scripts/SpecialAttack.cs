@@ -7,9 +7,23 @@ public class SpecialAttack : MonoBehaviour{
 
     private GameObject[] enemies;
     private HealthManager healthManager;
+    private Rigidbody2D rb;
+    private Vector2 startPosition;
+    private int t0;
     
+    private void Awake(){
+        rb = GetComponent<Rigidbody2D>();
+    }
     private void OnEnable() {
+        t0 = Time.frameCount;
+        startPosition = transform.position;
         StartCoroutine(BombTimer());
+    }
+
+    private void Update() {
+        float t = Time.frameCount - t0;
+        Debug.Log(t0 + " | " + t);
+        rb.position = new Vector2(t, -1*((t/10)*(t/10) - t)) + startPosition;
     }
 
     private IEnumerator BombTimer(){
