@@ -50,7 +50,7 @@ public class EnemySpawner : MonoBehaviour
             GameObject enemy = Instantiate(enemyDefault.prefab);
             enemy.name = enemyPattern.enemyDefault.enemyName;
 
-            EnemyController enemyController = enemy.AddComponent(enemyPattern.enemyController.GetClass()) as EnemyController;
+            EnemyController enemyController = enemy.GetComponent<EnemyController>();
             HealthManager healthManager = enemy.GetComponent<HealthManager>();
 
             healthManager.OnDeath.AddListener(enemyController.OnPlayerKill);

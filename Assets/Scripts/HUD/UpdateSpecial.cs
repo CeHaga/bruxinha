@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 
-public class UpdateSpecial : MonoBehaviour{
-    [SerializeField] private TextMeshProUGUI specialValue;
+public class UpdateSpecial : MonoBehaviour
+{
+    [SerializeField] private Image[] digits;
 
-    public void UpdateText(int count){
+    public void UpdateText(int count)
+    {
         int number1 = count / 10;
         int number2 = count % 10;
-        specialValue.text = "<sprite name=\"" + number1.ToString() + "\"><sprite name=\"" + number2.ToString() + "\">";
+        Debug.Log("Special number1: " + count / 10 + " number2: " + count % 10);
+        digits[0].sprite = GlobalValues.instance.digits[number1].sprite;
+        digits[1].sprite = GlobalValues.instance.digits[number2].sprite;
     }
 }

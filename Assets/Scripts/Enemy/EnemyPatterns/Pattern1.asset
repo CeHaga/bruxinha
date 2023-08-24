@@ -14,11 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patternData:
   - spawnTime: 0
-    enemyController: {fileID: 11500000, guid: dbce1f7d99f7cf947a745e2812b25930, type: 3}
     enemyDefault: {fileID: 11400000, guid: d3f967fabcf6c1c4da37874dbcf40578, type: 2}
   - spawnTime: 1
-    enemyController: {fileID: 11500000, guid: fc1a4143ce16b2744a70ed1f83ccf97e, type: 3}
-    enemyDefault: {fileID: 11400000, guid: d3f967fabcf6c1c4da37874dbcf40578, type: 2}
+    enemyDefault: {fileID: 11400000, guid: aacf0f41c4bf82440867abe3018c7c7d, type: 2}
   - spawnTime: 2
-    enemyController: {fileID: 11500000, guid: d03421d4d304edd4fb2860647d4a2f70, type: 3}
-    enemyDefault: {fileID: 11400000, guid: d3f967fabcf6c1c4da37874dbcf40578, type: 2}
+    enemyDefault: {fileID: 11400000, guid: 541975f7d3a820e49aa4cbbf5f54f756, type: 2}

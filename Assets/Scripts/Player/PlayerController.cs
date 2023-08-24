@@ -8,12 +8,6 @@ public class PlayerController : MonoBehaviour
 	[Header("Parameters")]
 	[SerializeField] private float speed = 5f;
 
-	/*[Header("Animations")]
-	[SerializeField] private Animator animator;
-	[SerializeField] private AnimationClip idle;
-	[SerializeField] private AnimationClip flying;
-	[SerializeField] private AnimationClip dying;*/
-
 	private Rigidbody2D rb;
 	private Vector2 moveInput;
 	private bool isDying;

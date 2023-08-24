@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 64ec450be3c126744a2f9f92c4a65ffc, type: 3}
-  m_Name: WeirdEnemy
+  m_Name: Weird_m40
   m_EditorClassIdentifier: 
   enemyName: Amogo Azul
-  prefab: {fileID: 971237430201958948, guid: 68f410c972d51b24494844f241741d10, type: 3}
+  prefab: {fileID: 4380216571297338205, guid: 11df73967c13bac4c99e5e5a91148dd2, type: 3}
   bulletScriptables:
   - {fileID: 11400000, guid: cf0fdd0497110b54c96f7878fce257ae, type: 2}
   shootInterval: 1
