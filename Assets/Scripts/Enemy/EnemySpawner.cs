@@ -35,7 +35,6 @@ public class EnemySpawner : MonoBehaviour
             enemyPool[i] = new ObjectPool<EnemyController>[validSpawnOptions[i].enemyPattern.patternData.Length];
             for (int j = 0; j < validSpawnOptions[i].enemyPattern.patternData.Length; j++)
             {
-                Debug.Log("i: " + i + " j: " + j);
                 enemyPool[i][j] = createObjectPool(validSpawnOptions[i].enemyPattern.patternData[j], i, j, 1, 5);
             }
         }
@@ -54,7 +53,6 @@ public class EnemySpawner : MonoBehaviour
             EnemyController enemyController = enemy.GetComponent<EnemyController>();
             HealthManager healthManager = enemy.GetComponent<HealthManager>();
 
-            Debug.Log("enemyController: " + enemyController + " healthManager: " + healthManager); ;
             healthManager.OnDeath.AddListener(enemyController.OnPlayerKill);
 
             enemyController.OnCreateObject(

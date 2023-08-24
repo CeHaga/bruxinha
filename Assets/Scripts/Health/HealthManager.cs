@@ -7,16 +7,17 @@ using System;
 public class HealthManager : MonoBehaviour
 {
     [Header("Health")]
-    [SerializeField] private float maxHealth;
-    private float currentHealth;
+    [SerializeField] private int maxHealth;
+    private int currentHealth;
     public UnityEvent OnDeath;
     [SerializeField] private float invincibleTime;
     private float invincibleTimer;
     private bool canTakeDamage;
     private bool isDying;
+    [SerializeField] private UpdateLifeCountEvent updateLifeCountEvent;
 
     [Header("Damage")]
-    [SerializeField] private float damage;
+    [SerializeField] private int damage;
     [SerializeField] private bool isFragile;
 
     [Header("Collision")]
@@ -32,7 +33,7 @@ public class HealthManager : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    public void Init(float maxHealth, float invincibleTime, float damage, bool isFragile, string[] collisionTags, float blinkingInterval)
+    public void Init(int maxHealth, float invincibleTime, int damage, bool isFragile, string[] collisionTags, float blinkingInterval)
     {
         this.maxHealth = maxHealth;
         this.invincibleTime = invincibleTime;
@@ -49,6 +50,7 @@ public class HealthManager : MonoBehaviour
         canTakeDamage = true;
         invincibleTimer = 0;
         isDying = false;
+        updateLifeCountEvent?.Invoke(maxHealth);
     }
 
     private void Update()
@@ -82,7 +84,7 @@ public class HealthManager : MonoBehaviour
             Debug.LogError($"No HealthManager found on {other.gameObject.name}");
             return;
         }
-        float takenDamage = otherHealth.damage;
+        int takenDamage = otherHealth.damage;
 
         TakeDamage(takenDamage);
     }
@@ -92,10 +94,12 @@ public class HealthManager : MonoBehaviour
         OnTriggerEnter2D(other);
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-        if (currentHealth <= 0)
+        // Set current health floor 0
+        currentHealth = Mathf.Max(currentHealth - damage, 0);
+        updateLifeCountEvent?.Invoke(currentHealth);
+        if (currentHealth == 0)
         {
             Debug.Log($"{gameObject.name} died");
             OnDeath.Invoke();
