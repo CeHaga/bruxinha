@@ -16,16 +16,19 @@ public class PlayerShooter : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private ShootOptions[] shootOptions;
     [SerializeField] private ShootEvent OnShoot;
+    [SerializeField] private UpdateBulletLevelEvent OnUpdateBulletLevel;
     private int level = 1;
 
     public void LevelUp()
     {
         level++;
+        OnUpdateBulletLevel?.Invoke(level);
     }
 
     public void ResetLevel()
     {
         level = 1;
+        OnUpdateBulletLevel?.Invoke(level);
     }
 
     public void OnShootBullet(InputAction.CallbackContext context)

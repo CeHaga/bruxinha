@@ -772,6 +772,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnUpdateBulletLevel:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1935324282}
+        m_TargetAssemblyTypeName: BulletLevel, Assembly-CSharp
+        m_MethodName: UpdateBulletLevel
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!61 &604516132
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2643,6 +2658,7 @@ GameObject:
   - component: {fileID: 1935324279}
   - component: {fileID: 1935324281}
   - component: {fileID: 1935324280}
+  - component: {fileID: 1935324282}
   m_Layer: 5
   m_Name: TipoTiro
   m_TagString: Untagged
@@ -2707,6 +2723,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1935324278}
   m_CullTransparentMesh: 1
+--- !u!114 &1935324282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935324278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d0a28acc349c184fa1eabd83c7f3b76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletLevelImages:
+  - {fileID: 21300000, guid: 75bdddefab6a75b4d8f5f3c67650bbe0, type: 3}
+  - {fileID: 21300000, guid: 37cb7869769ce73408be249be757c4e0, type: 3}
+  - {fileID: 21300000, guid: 73fff2fbe92fa194fa4b5c8d65df8cc0, type: 3}
+  bulletLevelHUD: {fileID: 1935324280}
 --- !u!1 &1966326010
 GameObject:
   m_ObjectHideFlags: 0
