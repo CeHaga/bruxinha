@@ -35,4 +35,10 @@ public class PlayerSpecial : MonoBehaviour
             }
         }
     }
+
+    public void OnRestoreBomb(int bombCount)
+    {
+        this.bombCount = Mathf.Min(this.bombCount + bombCount, 3);
+        onBombUsed.Invoke(this.bombCount);
+    }
 }

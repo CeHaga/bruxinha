@@ -4,19 +4,42 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
 
+[System.Serializable]
+public struct ShootOptions
+{
+    public BulletScriptable bulletScriptable;
+    public int level;
+}
 public class PlayerShooter : MonoBehaviour
 {
     [SerializeField] private GameObject bulletSpawnPoint;
     [SerializeField] private Animator animator;
-    [SerializeField] private BulletScriptable[] bulletScriptables;
+    [SerializeField] private ShootOptions[] shootOptions;
     [SerializeField] private ShootEvent OnShoot;
-    public void OnShootBullet1(InputAction.CallbackContext context)
+    private int level = 1;
+
+    public void LevelUp()
+    {
+        level++;
+    }
+
+    public void ResetLevel()
+    {
+        level = 1;
+    }
+
+    public void OnShootBullet(InputAction.CallbackContext context)
     {
         if (context.started)
         {
-            Debug.Log("Shoot");
             animator.SetTrigger("Shoot");
-            OnShoot.Invoke(bulletScriptables[0], bulletSpawnPoint.transform.position);
+            foreach (ShootOptions shootOption in shootOptions)
+            {
+                if (shootOption.level <= level)
+                {
+                    OnShoot.Invoke(shootOption.bulletScriptable, bulletSpawnPoint.transform.position);
+                }
+            }
         }
     }
 }

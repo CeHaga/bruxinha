@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Pool;
+using UnityEngine.Events;
 
 [System.Serializable]
 public struct EnemySpawnOptions
@@ -22,6 +23,9 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float spawnMultiplierBonus;
     private float spawnMultiplier = 1;
     [SerializeField] private float maxSpawnMultiplier;
+
+    [Header("Items")]
+    [SerializeField] private ItemSpawnEvent OnItemSpawn;
 
     private ObjectPool<EnemyController>[][] enemyPool;
 
@@ -68,16 +72,16 @@ public class EnemySpawner : MonoBehaviour
 
             return enemyController;
         }, (enemy) =>
-            {
-                enemy.gameObject.SetActive(true);
-                enemy.OnReuseObject();
-            }, (enemy) =>
-            {
-                enemy.gameObject.SetActive(false);
-            }, (enemy) =>
-            {
-                Destroy(enemy.gameObject);
-            }, false, size, maxSize);
+        {
+            enemy.gameObject.SetActive(true);
+            enemy.OnReuseObject();
+        }, (enemy) =>
+        {
+            enemy.gameObject.SetActive(false);
+        }, (enemy) =>
+        {
+            Destroy(enemy.gameObject);
+        }, false, size, maxSize);
     }
 
     private IEnumerator SpawnPatterns()
@@ -105,5 +109,9 @@ public class EnemySpawner : MonoBehaviour
     private void KillEnemy(EnemyController enemy, int patternIndex, int enemyIndex, bool didPlayerKill = false)
     {
         enemyPool[patternIndex][enemyIndex].Release(enemy);
+        if (didPlayerKill)
+        {
+            OnItemSpawn?.Invoke(enemy.transform.position);
+        }
     }
 }

@@ -15,6 +15,7 @@ public class HealthManager : MonoBehaviour
     private bool canTakeDamage;
     private bool isDying;
     [SerializeField] private UpdateLifeCountEvent updateLifeCountEvent;
+    [SerializeField] private UnityEvent OnLoseHealth;
 
     [Header("Damage")]
     [SerializeField] private int damage;
@@ -70,8 +71,6 @@ public class HealthManager : MonoBehaviour
         if (!canTakeDamage) return;
         if (Array.IndexOf(collisionTags, other.gameObject.tag) == -1) return;
 
-        Debug.Log($"{gameObject.name} hit by {other.gameObject.name}");
-
         if (isFragile)
         {
             OnDeath.Invoke();
@@ -99,9 +98,10 @@ public class HealthManager : MonoBehaviour
         // Set current health floor 0
         currentHealth = Mathf.Max(currentHealth - damage, 0);
         updateLifeCountEvent?.Invoke(currentHealth);
+        OnLoseHealth?.Invoke();
         if (currentHealth == 0)
         {
-            Debug.Log($"{gameObject.name} died");
+            // Debug.Log($"{gameObject.name} died");
             OnDeath.Invoke();
             isDying = true;
             return;
@@ -119,5 +119,11 @@ public class HealthManager : MonoBehaviour
             spriteRenderer.enabled = true;
             yield return new WaitForSeconds(blinkingInterval);
         }
+    }
+
+    public void Heal(int healAmount)
+    {
+        currentHealth = Mathf.Min(currentHealth + healAmount, maxHealth);
+        updateLifeCountEvent?.Invoke(currentHealth);
     }
 }
