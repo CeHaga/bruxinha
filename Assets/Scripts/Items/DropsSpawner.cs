@@ -41,6 +41,8 @@ public class DropsSpawner : MonoBehaviour
             itemPickup.Init((item) => OnPickup(item, itemIndex),
                             itemController);
 
+            itemController.Init((item) => OnOutOfBounds(item, itemIndex));
+
             return itemController;
         }, (item) =>
         {
@@ -66,6 +68,11 @@ public class DropsSpawner : MonoBehaviour
     public void OnPickup(ItemController itemController, int itemIndex)
     {
         itemsOptions[itemIndex].OnPickup?.Invoke();
+        itemPool[itemIndex].Release(itemController);
+    }
+
+    public void OnOutOfBounds(ItemController itemController, int itemIndex)
+    {
         itemPool[itemIndex].Release(itemController);
     }
 }
