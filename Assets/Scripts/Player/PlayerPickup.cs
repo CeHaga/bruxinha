@@ -8,6 +8,7 @@ public class PlayerPickup : MonoBehaviour
     public HealEvent OnHeal;
     public PickBombEvent OnPickBomb;
     public UnityEvent OnShootUpgrade;
+    public UpdateScoreCountEvent OnScoreGained;
 
     public void PickUpHeal()
     {
@@ -26,6 +27,6 @@ public class PlayerPickup : MonoBehaviour
 
     public void PickUpScore(int score)
     {
-        Debug.Log($"Picking up score {score} - TODO FUNCTION");
+        OnScoreGained?.Invoke(score);
     }
 }

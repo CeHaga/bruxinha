@@ -27,6 +27,9 @@ public class EnemySpawner : MonoBehaviour
     [Header("Items")]
     [SerializeField] private ItemSpawnEvent OnItemSpawn;
 
+    [Header("Score")]
+    [SerializeField] private UpdateScoreCountEvent OnScoreGained;
+
     private ObjectPool<EnemyController>[][] enemyPool;
 
     private void Start()
@@ -111,6 +114,7 @@ public class EnemySpawner : MonoBehaviour
         enemyPool[patternIndex][enemyIndex].Release(enemy);
         if (didPlayerKill)
         {
+            OnScoreGained.Invoke(1);
             OnItemSpawn?.Invoke(enemy.transform.position);
         }
     }

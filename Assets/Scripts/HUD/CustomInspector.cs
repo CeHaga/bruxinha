@@ -10,7 +10,7 @@ public class CustomInspector : Editor{
         UpdateScore panel = (UpdateScore)target;
 
         if(GUILayout.Button("Click Here")){
-            panel.UpdateText(12567897);
+            panel.AddScore(12567897);
         }
     }
 }
