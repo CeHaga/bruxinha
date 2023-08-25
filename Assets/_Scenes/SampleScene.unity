@@ -2104,7 +2104,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51b1857755bdaec488d7e7a7a7f0424d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  digits: []
+  digits:
+  - {fileID: 498464709}
+  - {fileID: 1050454030}
+  - {fileID: 256068033}
+  - {fileID: 1758392931}
+  - {fileID: 1184670416}
+  - {fileID: 1423746647}
+  - {fileID: 332301469}
+  - {fileID: 1499391066}
+  - {fileID: 934587598}
+  - {fileID: 956294468}
 --- !u!1 &1324729136
 GameObject:
   m_ObjectHideFlags: 0
