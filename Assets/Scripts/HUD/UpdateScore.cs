@@ -5,14 +5,20 @@ using UnityEngine.UI;
 
 public class UpdateScore : MonoBehaviour
 {
+    [SerializeField] private int score;
     [SerializeField] private Image[] digits;
 
-    public void UpdateText(int score)
-    {
-        for (int i = 9; i >= 0; i--)
-        {
-            int digit = score % 10;
-            score /= 10;
+    public void AddScore(int value){
+        score += value;
+        Debug.Log(score);
+        UpdateText();
+    }
+
+    public void UpdateText(){
+        int newScore = score;
+        for (int i = 9; i >= 0; i--){
+            int digit = newScore % 10;
+            newScore /= 10;
             digits[i].sprite = GlobalValues.instance.digits[digit].sprite;
         }
     }

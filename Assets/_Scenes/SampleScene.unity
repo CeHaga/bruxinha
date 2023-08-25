@@ -984,6 +984,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnScoreGained:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1188624662}
+        m_TargetAssemblyTypeName: UpdateScore, Assembly-CSharp
+        m_MethodName: AddScore
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &648636150
 GameObject:
   m_ObjectHideFlags: 0
@@ -1210,6 +1225,21 @@ MonoBehaviour:
       - m_Target: {fileID: 971615907}
         m_TargetAssemblyTypeName: DropsSpawner, Assembly-CSharp
         m_MethodName: SpawnItem
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnScoreGained:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1188624662}
+        m_TargetAssemblyTypeName: UpdateScore, Assembly-CSharp
+        m_MethodName: AddScore
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2119,7 +2149,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51b1857755bdaec488d7e7a7a7f0424d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  digits: []
+  score: 0
+  digits:
+  - {fileID: 498464709}
+  - {fileID: 1050454030}
+  - {fileID: 256068033}
+  - {fileID: 1758392931}
+  - {fileID: 1184670416}
+  - {fileID: 1423746647}
+  - {fileID: 332301469}
+  - {fileID: 1499391066}
+  - {fileID: 934587598}
+  - {fileID: 956294468}
 --- !u!1 &1324729136
 GameObject:
   m_ObjectHideFlags: 0
