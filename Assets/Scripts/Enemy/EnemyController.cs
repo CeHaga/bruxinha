@@ -29,11 +29,13 @@ public abstract class EnemyController : MonoBehaviour
 	public Action ResetHealth;
 	private Action<EnemyController, bool> onEnemyKilled;
 
+	private Func<bool> onGamePaused;
+
 	private Animator animator;
 	private Rigidbody2D rb;
 	private Collider2D collider2d;
 
-	private int t0;
+	private int t;
 	private bool isDying;
 	private float yOffset;
 
@@ -49,7 +51,8 @@ public abstract class EnemyController : MonoBehaviour
 		canShoot = false;
 	}
 
-	public void OnCreateObject(Action<EnemyController, bool> onEnemyKilled, Action<BulletScriptable, Vector2> OnShoot, BulletScriptable[] bulletScriptables, float shootInterval, AnimationClip idle, AnimationClip flying, AnimationClip dying, Action ResetHealth)
+	public void OnCreateObject(Action<EnemyController, bool> onEnemyKilled, Action<BulletScriptable, Vector2> OnShoot, BulletScriptable[] bulletScriptables, float shootInterval,
+	AnimationClip idle, AnimationClip flying, AnimationClip dying, Action ResetHealth, Func<bool> onGamePaused)
 	{
 		this.onEnemyKilled = onEnemyKilled;
 		this.OnShoot = OnShoot;
@@ -59,13 +62,15 @@ public abstract class EnemyController : MonoBehaviour
 		this.flying = flying;
 		this.dying = dying;
 		this.ResetHealth = ResetHealth;
+		this.onGamePaused = onGamePaused;
 	}
 
 	public void OnReuseObject()
 	{
 		transform.position = new Vector2(256, 256);
 		isDying = false;
-		t0 = Time.frameCount;
+		//t0 = Time.frameCount;
+		t = 0;
 		ChangeCollisions(true);
 		ResetHealth?.Invoke();
 		InvokeRepeating("Shoot", 0, shootInterval);
@@ -73,9 +78,11 @@ public abstract class EnemyController : MonoBehaviour
 
 	private void Update()
 	{
+		if(onGamePaused()) return;
 		if (isDying) return;
-		float t = Time.frameCount - t0;
+		//float t = Time.frameCount - t0;
 		EnemyState state = Move(t);
+		t++;
 		if (state.position != null)
 		{
 			Vector2 position = (Vector2)state.position;

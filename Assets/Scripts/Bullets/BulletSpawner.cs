@@ -9,6 +9,8 @@ public class BulletSpawner : MonoBehaviour
 
     private ObjectPool<BulletController>[] bulletPools;
 
+    private bool isGamePaused;
+
     private void Start()
     {
         bulletPools = new ObjectPool<BulletController>[bulletScriptables.Length];
@@ -23,7 +25,7 @@ public class BulletSpawner : MonoBehaviour
         return new ObjectPool<BulletController>(() =>
         {
             var bullet = Instantiate(bulletScriptable.BulletPrefab);
-            bullet.OnCreateObject((bullet) => BulletHit(bullet, bulletType));
+            bullet.OnCreateObject((bullet) => BulletHit(bullet, bulletType), () => isGamePaused);
             return bullet;
         }, (bullet) =>
         {
@@ -47,5 +49,9 @@ public class BulletSpawner : MonoBehaviour
     private void BulletHit(BulletController bullet, int bulletType)
     {
         bulletPools[bulletType].Release(bullet);
+    }
+
+    public void PauseBullets(bool isGamePaused){
+        this.isGamePaused = isGamePaused;
     }
 }
