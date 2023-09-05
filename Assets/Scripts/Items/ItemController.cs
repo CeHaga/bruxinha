@@ -6,25 +6,31 @@ using System;
 public class ItemController : MonoBehaviour
 {
     private Vector2 startingPosition;
-    private float t0;
+    private float t;
     private Action<ItemController> OnOutOfBounds;
 
-    public void Init(Action<ItemController> OnOutOfBounds)
+    private Func<bool> onGamePaused;
+
+    public void Init(Action<ItemController> OnOutOfBounds, Func<bool> onGamePaused)
     {
         this.OnOutOfBounds = OnOutOfBounds;
+        this.onGamePaused = onGamePaused;
     }
 
     public void OnReuseObject(Vector2 startingPosition)
     {
-        t0 = Time.frameCount;
+        //t0 = Time.frameCount;
+        t = 0;
         this.startingPosition = startingPosition;
         transform.position = startingPosition;
     }
 
     void Update()
     {
-        float t = Time.frameCount - t0;
+        if(onGamePaused()) return;
+        //float t = Time.frameCount - t0;
         transform.position = Move(t);
+        t++;
         CheckOutOfBounds();
     }
 

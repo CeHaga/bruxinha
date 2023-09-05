@@ -19,6 +19,8 @@ public class DropsSpawner : MonoBehaviour
     private ObjectPool<ItemController>[] itemPool;
     [SerializeField] private float itemSpawnChance;
 
+    private bool isGamePaused;
+
     private void Start()
     {
         itemPool = new ObjectPool<ItemController>[itemsOptions.Length];
@@ -41,7 +43,7 @@ public class DropsSpawner : MonoBehaviour
             itemPickup.Init((item) => OnPickup(item, itemIndex),
                             itemController);
 
-            itemController.Init((item) => OnOutOfBounds(item, itemIndex));
+            itemController.Init((item) => OnOutOfBounds(item, itemIndex), () => isGamePaused);
 
             return itemController;
         }, (item) =>
@@ -74,5 +76,9 @@ public class DropsSpawner : MonoBehaviour
     public void OnOutOfBounds(ItemController itemController, int itemIndex)
     {
         itemPool[itemIndex].Release(itemController);
+    }
+
+    public void PauseDrops(bool isGamePaused){
+        this.isGamePaused = isGamePaused;
     }
 }

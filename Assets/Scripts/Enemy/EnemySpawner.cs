@@ -32,6 +32,8 @@ public class EnemySpawner : MonoBehaviour
 
     private ObjectPool<EnemyController>[][] enemyPool;
 
+    private bool isGamePaused;
+
     private void Start()
     {
         validSpawnOptions = enemySpawnOptions.Where(enemySpawnOption => enemySpawnOption.canSpawn).ToArray();
@@ -70,7 +72,8 @@ public class EnemySpawner : MonoBehaviour
                 enemyDefault.idle,
                 enemyDefault.flying,
                 enemyDefault.dying,
-                () => healthManager.ResetHealth()
+                () => healthManager.ResetHealth(),
+                () => isGamePaused
             );
 
             return enemyController;
@@ -117,5 +120,9 @@ public class EnemySpawner : MonoBehaviour
             OnScoreGained.Invoke(1);
             OnItemSpawn?.Invoke(enemy.transform.position);
         }
+    }
+
+    public void PauseEnemies(bool isGamePaused){
+        this.isGamePaused = isGamePaused;
     }
 }
