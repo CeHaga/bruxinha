@@ -7,13 +7,17 @@ public class PlayerController : MonoBehaviour
 {
 	[Header("Parameters")]
 	[SerializeField] private float speed = 5f;
+	[SerializeField] private AnimationClip dying;
+	[SerializeField] private GameOverEvent gameOverEvent;
 
 	private Rigidbody2D rb;
+	private Animator animator;
 	private Vector2 moveInput;
 	private bool isDying;
 
 	private void Awake()
 	{
+		animator = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody2D>();
 		isDying = false;
 	}
@@ -46,8 +50,9 @@ public class PlayerController : MonoBehaviour
 
 	private IEnumerator PlayDyingAnimation()
 	{
-		//animator.Play(dying.name);
-		yield return new WaitForSeconds(1);
+		animator.Play(dying.name);
+		yield return new WaitForSeconds(dying.length + 0.5f);
 		Destroy(gameObject);
+		gameOverEvent.Invoke();
 	}
 }
