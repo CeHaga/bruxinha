@@ -1453,8 +1453,8 @@ MonoBehaviour:
   - canSpawn: 1
     enemyPattern: {fileID: 11400000, guid: 0f40d6eadad3dd242954735e16331224, type: 2}
   spawnInterval: 300
-  spawnMultiplierBonus: 0.5
-  maxSpawnMultiplier: 10
+  spawnMultiplierBonus: 0.1
+  maxSpawnMultiplier: 2
   OnItemSpawn:
     m_PersistentCalls:
       m_Calls:
