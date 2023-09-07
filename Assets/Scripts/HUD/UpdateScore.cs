@@ -8,15 +8,17 @@ public class UpdateScore : MonoBehaviour
     [SerializeField] private int score;
     [SerializeField] private Image[] digits;
 
-    public void AddScore(int value){
+    public void AddScore(int value)
+    {
         score += value;
-        Debug.Log(score);
         UpdateText();
     }
 
-    public void UpdateText(){
+    public void UpdateText()
+    {
         int newScore = score;
-        for (int i = 9; i >= 0; i--){
+        for (int i = 9; i >= 0; i--)
+        {
             int digit = newScore % 10;
             newScore /= 10;
             digits[i].sprite = GlobalValues.instance.digits[digit].sprite;

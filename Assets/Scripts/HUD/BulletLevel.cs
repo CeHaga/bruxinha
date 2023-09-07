@@ -10,6 +10,8 @@ public class BulletLevel : MonoBehaviour
 
     public void UpdateBulletLevel(int level)
     {
+        if (level < 1) level = 1;
+        if (level > bulletLevelImages.Length) level = bulletLevelImages.Length;
         bulletLevelHUD.sprite = bulletLevelImages[level - 1];
     }
 }
