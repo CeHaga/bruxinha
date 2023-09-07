@@ -23,6 +23,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float spawnMultiplierBonus;
     private float spawnMultiplier = 1;
     [SerializeField] private float maxSpawnMultiplier;
+    private float spawnTime;
 
     [Header("Items")]
     [SerializeField] private ItemSpawnEvent OnItemSpawn;
@@ -32,7 +33,18 @@ public class EnemySpawner : MonoBehaviour
 
     private ObjectPool<EnemyController>[][] enemyPool;
 
-    private bool isGamePaused;
+    [Header("Debug")]
+    [SerializeField] private bool isGamePaused;
+
+
+    private int frameCount = -1;
+    private bool newPattern = true;
+    private int currentEnemyPatternIndex;
+    private EnemyPattern currentEnemyPattern;
+    private int totalEnemies;
+    private int currentEnemy;
+    private float waitingTime;
+    private bool isBetweenPatterns = false;
 
     private void Start()
     {
@@ -47,8 +59,52 @@ public class EnemySpawner : MonoBehaviour
                 enemyPool[i][j] = createObjectPool(validSpawnOptions[i].enemyPattern.patternData[j], i, j, 1, 5);
             }
         }
+    }
 
-        StartCoroutine(SpawnPatterns());
+    private void Update()
+    {
+        if (isGamePaused) return;
+
+        frameCount++;
+
+        if (isBetweenPatterns && frameCount < waitingTime)
+        {
+            return;
+        }
+
+        if (isBetweenPatterns)
+        {
+            isBetweenPatterns = false;
+            newPattern = true;
+            frameCount = 0;
+        }
+
+        if (newPattern)
+        {
+            newPattern = false;
+            currentEnemyPatternIndex = Random.Range(0, validSpawnOptions.Length);
+            currentEnemyPattern = validSpawnOptions[currentEnemyPatternIndex].enemyPattern;
+            totalEnemies = currentEnemyPattern.patternData.Length;
+            currentEnemy = 0;
+        }
+
+        for (; currentEnemy < totalEnemies; currentEnemy++)
+        {
+            EnemyPatternSpawn enemyPatternSpawn = currentEnemyPattern.patternData[currentEnemy];
+            if (enemyPatternSpawn.spawnTime / spawnMultiplier > frameCount) break;
+
+            enemyPool[currentEnemyPatternIndex][currentEnemy].Get();
+        }
+
+        if (currentEnemy < totalEnemies)
+        {
+            return;
+        }
+
+        isBetweenPatterns = true;
+        frameCount = -1;
+        waitingTime = spawnInterval / spawnMultiplier;
+        spawnMultiplier = Mathf.Min(maxSpawnMultiplier, spawnMultiplierBonus + spawnMultiplier);
     }
 
     private ObjectPool<EnemyController> createObjectPool(EnemyPatternSpawn enemyPattern, int patternIndex, int enemyIndex, int size, int maxSize)
@@ -90,28 +146,6 @@ public class EnemySpawner : MonoBehaviour
         }, false, size, maxSize);
     }
 
-    private IEnumerator SpawnPatterns()
-    {
-        while (true)
-        {
-            int patternIndex = Random.Range(0, validSpawnOptions.Length);
-            EnemyPattern enemyPattern = validSpawnOptions[patternIndex].enemyPattern;
-            float totalTime = 0;
-            for (int i = 0; i < enemyPattern.patternData.Length; i++)
-            {
-                EnemyPatternSpawn enemyPatternSpawn = enemyPattern.patternData[i];
-
-                float waitingTime = enemyPatternSpawn.spawnTime - totalTime;
-                yield return new WaitForSeconds(waitingTime / spawnMultiplier);
-                totalTime += enemyPatternSpawn.spawnTime;
-
-                enemyPool[patternIndex][i].Get();
-            }
-            yield return new WaitForSeconds(spawnInterval / spawnMultiplier);
-            spawnMultiplier = Mathf.Min(maxSpawnMultiplier, spawnMultiplierBonus + spawnMultiplier);
-        }
-    }
-
     private void KillEnemy(EnemyController enemy, int patternIndex, int enemyIndex, bool didPlayerKill = false)
     {
         enemyPool[patternIndex][enemyIndex].Release(enemy);
@@ -122,7 +156,8 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    public void PauseEnemies(bool isGamePaused){
+    public void PauseEnemies(bool isGamePaused)
+    {
         this.isGamePaused = isGamePaused;
     }
 }

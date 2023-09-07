@@ -1143,7 +1143,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bomb: {fileID: 761898815649502729}
-  bombCount: 3
   maxBombs: 3
   onBombUsed:
     m_PersistentCalls:
@@ -1453,7 +1452,7 @@ MonoBehaviour:
     enemyPattern: {fileID: 11400000, guid: 221a5111e43b9ed4bbfbdb74100dba08, type: 2}
   - canSpawn: 1
     enemyPattern: {fileID: 11400000, guid: 0f40d6eadad3dd242954735e16331224, type: 2}
-  spawnInterval: 1
+  spawnInterval: 300
   spawnMultiplierBonus: 0.5
   maxSpawnMultiplier: 10
   OnItemSpawn:
@@ -1486,6 +1485,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  isGamePaused: 0
 --- !u!4 &673619946
 Transform:
   m_ObjectHideFlags: 0

@@ -15,7 +15,7 @@ MonoBehaviour:
   patternData:
   - spawnTime: 0
     enemyDefault: {fileID: 11400000, guid: d3f967fabcf6c1c4da37874dbcf40578, type: 2}
-  - spawnTime: 1
+  - spawnTime: 60
     enemyDefault: {fileID: 11400000, guid: aacf0f41c4bf82440867abe3018c7c7d, type: 2}
-  - spawnTime: 2
+  - spawnTime: 120
     enemyDefault: {fileID: 11400000, guid: 541975f7d3a820e49aa4cbbf5f54f756, type: 2}
