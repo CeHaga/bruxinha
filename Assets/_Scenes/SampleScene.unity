@@ -1910,6 +1910,7 @@ MonoBehaviour:
   itemsOptions:
   - canSpawn: 1
     itemPrefab: {fileID: 7502167151633520715, guid: a21d148e72ede794ea0b394eb2734df0, type: 3}
+    probability: 2
     OnPickup:
       m_PersistentCalls:
         m_Calls:
@@ -1927,6 +1928,7 @@ MonoBehaviour:
           m_CallState: 2
   - canSpawn: 1
     itemPrefab: {fileID: 7502167151633520715, guid: 228747ce57a61a5478290005732e4644, type: 3}
+    probability: 5
     OnPickup:
       m_PersistentCalls:
         m_Calls:
@@ -1944,6 +1946,7 @@ MonoBehaviour:
           m_CallState: 2
   - canSpawn: 1
     itemPrefab: {fileID: 7502167151633520715, guid: c12350a7f32099f43970309c9a33766d, type: 3}
+    probability: 10
     OnPickup:
       m_PersistentCalls:
         m_Calls:
@@ -1961,6 +1964,7 @@ MonoBehaviour:
           m_CallState: 2
   - canSpawn: 1
     itemPrefab: {fileID: 7502167151633520715, guid: 2d259b150de0c6d4d80e51a22c6d70e5, type: 3}
+    probability: 40
     OnPickup:
       m_PersistentCalls:
         m_Calls:
@@ -1978,6 +1982,7 @@ MonoBehaviour:
           m_CallState: 2
   - canSpawn: 1
     itemPrefab: {fileID: 7502167151633520715, guid: 71f63ef73eee8f341af8b13cdac30e3f, type: 3}
+    probability: 20
     OnPickup:
       m_PersistentCalls:
         m_Calls:
@@ -1993,7 +1998,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  itemSpawnChance: 1
 --- !u!1 &971978404
 GameObject:
   m_ObjectHideFlags: 0
