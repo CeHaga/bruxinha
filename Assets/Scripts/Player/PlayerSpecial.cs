@@ -41,7 +41,7 @@ public class PlayerSpecial : MonoBehaviour
 
     public void OnRestoreBomb(int bombCount, Action callback = null)
     {
-        if (bombCount == maxBombs)
+        if (this.bombCount == maxBombs)
         {
             callback?.Invoke();
             return;
