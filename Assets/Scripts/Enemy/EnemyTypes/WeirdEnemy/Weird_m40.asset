@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Amogo Azul
   prefab: {fileID: 4380216571297338205, guid: 11df73967c13bac4c99e5e5a91148dd2, type: 3}
+  score: 5
   bulletScriptables:
   - {fileID: 11400000, guid: cf0fdd0497110b54c96f7878fce257ae, type: 2}
   shootInterval: 1
