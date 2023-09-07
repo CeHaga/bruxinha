@@ -121,7 +121,7 @@ public class EnemySpawner : MonoBehaviour
             healthManager.OnDeath.AddListener(enemyController.OnPlayerKill);
 
             enemyController.OnCreateObject(
-                (enemy, playerKill) => KillEnemy(enemy, patternIndex, enemyIndex, playerKill),
+                (enemy, playerKill) => KillEnemy(enemy, patternIndex, enemyIndex, enemyDefault, playerKill),
                 (bulletScriptable, position) => OnShoot.Invoke(bulletScriptable, position),
                 enemyDefault.bulletScriptables,
                 enemyDefault.shootInterval,
@@ -146,14 +146,13 @@ public class EnemySpawner : MonoBehaviour
         }, false, size, maxSize);
     }
 
-    private void KillEnemy(EnemyController enemy, int patternIndex, int enemyIndex, bool didPlayerKill = false)
+    private void KillEnemy(EnemyController enemy, int patternIndex, int enemyIndex, EnemyDefault enemyDefault, bool didPlayerKill = false)
     {
         enemyPool[patternIndex][enemyIndex].Release(enemy);
-        if (didPlayerKill)
-        {
-            OnScoreGained.Invoke(1);
-            OnItemSpawn?.Invoke(enemy.transform.position);
-        }
+
+        if (!didPlayerKill) return;
+        OnScoreGained?.Invoke(enemyDefault.score);
+        OnItemSpawn?.Invoke(enemy.transform.position);
     }
 
     public void PauseEnemies(bool isGamePaused)

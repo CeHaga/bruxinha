@@ -7,6 +7,7 @@ public class EnemyDefault : ScriptableObject
 {
     public string enemyName;
     public GameObject prefab;
+    public int score;
 
     [Header("Controller")]
     public BulletScriptable[] bulletScriptables;
