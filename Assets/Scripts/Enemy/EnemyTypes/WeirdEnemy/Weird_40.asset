@@ -17,6 +17,6 @@ MonoBehaviour:
   bulletScriptables:
   - {fileID: 11400000, guid: cf0fdd0497110b54c96f7878fce257ae, type: 2}
   shootInterval: 1
-  idle: {fileID: 7400000, guid: 88ca2e6f66a7afd4ca48ed1bf186b985, type: 2}
-  flying: {fileID: 7400000, guid: 26af11c3dd50b29419e1906ded4f7cea, type: 2}
-  dying: {fileID: 7400000, guid: 1b3ce0858dc53bc489b258dacec7d213, type: 2}
+  idle: {fileID: 7400000, guid: 47b30c4e807e0944cbaeec86e16c7b99, type: 2}
+  flying: {fileID: 7400000, guid: 47b30c4e807e0944cbaeec86e16c7b99, type: 2}
+  dying: {fileID: 7400000, guid: cce370abb00523b48935f6fa19b8a83d, type: 2}
