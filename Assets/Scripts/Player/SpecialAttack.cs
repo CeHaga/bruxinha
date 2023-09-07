@@ -10,7 +10,8 @@ public class SpecialAttack : MonoBehaviour
     private HealthManager healthManager;
     private Rigidbody2D rb;
     private Vector2 startPosition;
-    private int t0;
+    private int t;
+    private bool isGamePaused;
 
     private void Awake()
     {
@@ -18,15 +19,16 @@ public class SpecialAttack : MonoBehaviour
     }
     private void OnEnable()
     {
-        t0 = Time.frameCount;
+        t = 0;
         startPosition = transform.position;
         StartCoroutine(BombTimer());
     }
 
     private void Update()
     {
-        float t = Time.frameCount - t0;
+        if(isGamePaused) return;
         rb.position = new Vector2(t, -1 * ((t / 10) * (t / 10) - t)) + startPosition;
+        t++;
     }
 
     private IEnumerator BombTimer()
@@ -47,5 +49,9 @@ public class SpecialAttack : MonoBehaviour
             healthManager = enemy.GetComponent<HealthManager>();
             healthManager.OnDeath.Invoke();
         }
+    }
+
+    public void PauseBomb(bool isGamePaused){
+        this.isGamePaused = isGamePaused;
     }
 }
