@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,7 @@ public struct ShootOptions
 }
 public class PlayerShooter : MonoBehaviour
 {
+    [SerializeField] private int maxLevel;
     [SerializeField] private GameObject bulletSpawnPoint;
     [SerializeField] private Animator animator;
     [SerializeField] private ShootOptions[] shootOptions;
@@ -19,8 +21,13 @@ public class PlayerShooter : MonoBehaviour
     [SerializeField] private UpdateBulletLevelEvent OnUpdateBulletLevel;
     private int level = 1;
 
-    public void LevelUp()
+    public void LevelUp(Action callback = null)
     {
+        if (level == maxLevel)
+        {
+            callback?.Invoke();
+            return;
+        }
         level++;
         OnUpdateBulletLevel?.Invoke(level);
     }

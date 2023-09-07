@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
+using System;
 
 public class PlayerSpecial : MonoBehaviour
 {
     [SerializeField] private GameObject bomb;
-    [SerializeField] private int bombCount;
+    private int bombCount;
+    [SerializeField] private int maxBombs;
     [SerializeField] private UpdateSpecialCountEvent onBombUsed;
     [SerializeField] private UpdateSpecial updateSpecial;
 
     private void Start()
     {
+        bombCount = maxBombs;
         onBombUsed.AddListener(updateSpecial.UpdateText);
         updateSpecial.UpdateText(bombCount);
     }
@@ -36,9 +39,14 @@ public class PlayerSpecial : MonoBehaviour
         }
     }
 
-    public void OnRestoreBomb(int bombCount)
+    public void OnRestoreBomb(int bombCount, Action callback = null)
     {
-        this.bombCount = Mathf.Min(this.bombCount + bombCount, 3);
+        if (bombCount == maxBombs)
+        {
+            callback?.Invoke();
+            return;
+        }
+        this.bombCount = Mathf.Min(this.bombCount + bombCount, maxBombs);
         onBombUsed.Invoke(this.bombCount);
     }
 }

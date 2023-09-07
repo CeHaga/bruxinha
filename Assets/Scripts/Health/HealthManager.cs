@@ -121,8 +121,13 @@ public class HealthManager : MonoBehaviour
         }
     }
 
-    public void Heal(int healAmount)
+    public void Heal(int healAmount, Action callback = null)
     {
+        if (currentHealth == maxHealth)
+        {
+            callback?.Invoke();
+            return;
+        }
         currentHealth = Mathf.Min(currentHealth + healAmount, maxHealth);
         updateLifeCountEvent?.Invoke(currentHealth);
     }

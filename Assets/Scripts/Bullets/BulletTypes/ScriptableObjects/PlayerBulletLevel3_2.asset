@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PlayerBulletLevel3_2
   m_EditorClassIdentifier: 
   name: Bala Diagonal 2
-  bulletPrefab: {fileID: 4484356935380116246, guid: e191cd377510c514ba5c9f1f61ad0fa3, type: 3}
+  bulletPrefab: {fileID: -1971397360831738819, guid: ccbaa3ccacfe7ee4dacf7e712e3d82f6, type: 3}

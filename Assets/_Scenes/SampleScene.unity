@@ -976,6 +976,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38479b0984cb8534f940081f302659f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxLevel: 3
   bulletSpawnPoint: {fileID: 178112281}
   animator: {fileID: 604516130}
   shootOptions:
@@ -1143,6 +1144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bomb: {fileID: 761898815649502729}
   bombCount: 3
+  maxBombs: 3
   onBombUsed:
     m_PersistentCalls:
       m_Calls:
@@ -1177,37 +1179,7 @@ MonoBehaviour:
       - m_Target: {fileID: 604516133}
         m_TargetAssemblyTypeName: HealthManager, Assembly-CSharp
         m_MethodName: Heal
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnPickBomb:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 604516134}
-        m_TargetAssemblyTypeName: PlayerSpecial, Assembly-CSharp
-        m_MethodName: OnRestoreBomb
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnShootUpgrade:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 604516131}
-        m_TargetAssemblyTypeName: PlayerShooter, Assembly-CSharp
-        m_MethodName: LevelUp
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1216,6 +1188,39 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  scoreOnFullHeal: 3
+  OnPickBomb:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 604516134}
+        m_TargetAssemblyTypeName: PlayerSpecial, Assembly-CSharp
+        m_MethodName: OnRestoreBomb
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  scoreOnFullBomb: 3
+  OnShootUpgrade:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 604516131}
+        m_TargetAssemblyTypeName: PlayerShooter, Assembly-CSharp
+        m_MethodName: LevelUp
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  scoreOnFullShootUpgrade: 3
   OnScoreGained:
     m_PersistentCalls:
       m_Calls:
