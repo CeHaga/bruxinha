@@ -22,9 +22,15 @@ public class GameOverMenuScript : MonoBehaviour{
         Time.timeScale = 0f;
     }
 
+    public void Restart(){
+        Time.timeScale = 1f;
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
+    }
+
     public void GoToMenu(){
-        //Time.timeScale = 1f;
-        //SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
         Debug.Log("Menu");
     }
 }
