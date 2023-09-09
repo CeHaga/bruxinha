@@ -8,6 +8,8 @@ TagManager:
   - PlayerBullet
   - EnemyBullet
   - Item
+  - PlayerPickup
+  - PlayerScreenBound
   layers:
   - Default
   - TransparentFX

@@ -17,7 +17,7 @@ public class ItemPickup : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("PlayerPickup"))
         {
             OnPickup(itemController);
         }
