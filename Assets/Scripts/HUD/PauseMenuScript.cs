@@ -28,8 +28,8 @@ public class PauseMenuScript : MonoBehaviour{
 
     public void GoToMenu(){
         GameIsPaused = false;
-        //Time.timeScale = 1f;
-        //SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
         Debug.Log("Menu");
     }
 
