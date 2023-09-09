@@ -5,20 +5,25 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class MainMenuScript : MonoBehaviour{
+public class MainMenuScript : MonoBehaviour
+{
     [SerializeField] private Button primaryButton;
-    void Start(){
+    void Start()
+    {
         primaryButton.Select();
     }
-    public void PlayGame(){
-        SceneManager.LoadScene("SampleScene");
+    public void PlayGame()
+    {
+        SceneManager.LoadScene("GameScene");
     }
 
-    public void Settings(){
+    public void Settings()
+    {
         Debug.Log("Ajustes");
     }
 
-    public void QuitGame(){
+    public void QuitGame()
+    {
         Debug.Log("Quit Game");
         Application.Quit();
     }

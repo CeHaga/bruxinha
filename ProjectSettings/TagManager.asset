@@ -45,9 +45,6 @@ TagManager:
   - name: Background
     uniqueID: 521874771
     locked: 0
-  - name: Clouds
-    uniqueID: 1628749143
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
@@ -59,4 +56,7 @@ TagManager:
     locked: 0
   - name: HUD
     uniqueID: 2373337365
+    locked: 0
+  - name: Clouds
+    uniqueID: 1628749143
     locked: 0
