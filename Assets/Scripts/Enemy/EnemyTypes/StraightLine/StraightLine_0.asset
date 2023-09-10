@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Amogo Verde
   prefab: {fileID: 5622947207983978964, guid: 56421501c70baf749a5926f04b704d4e, type: 3}
-  score: 10
+  score: 2
   bulletScriptables: []
   shootInterval: 0
   idle: {fileID: 0}
