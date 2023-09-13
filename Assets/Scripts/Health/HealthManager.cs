@@ -96,13 +96,13 @@ public class HealthManager : MonoBehaviour
 
     private IEnumerator Blink()
     {
-        while (!canTakeDamage)
+        do
         {
             spriteRenderer.enabled = false;
             yield return new WaitForSeconds(blinkingInterval);
             spriteRenderer.enabled = true;
             yield return new WaitForSeconds(blinkingInterval);
-        }
+        }while (!canTakeDamage);
     }
 
     public void Heal(int healAmount, Action callback = null)
