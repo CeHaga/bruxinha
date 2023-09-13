@@ -14,12 +14,28 @@ public struct ShootOptions
 public class PlayerShooter : MonoBehaviour
 {
     [SerializeField] private int maxLevel;
+    [SerializeField] private int bulletCooldown;
     [SerializeField] private GameObject bulletSpawnPoint;
     [SerializeField] private Animator animator;
     [SerializeField] private ShootOptions[] shootOptions;
     [SerializeField] private ShootEvent OnShoot;
     [SerializeField] private UpdateBulletLevelEvent OnUpdateBulletLevel;
     private int level = 1;
+    private int bulletCooldownCounter = 0;
+    private bool canShoot = true;
+
+    void Update()
+    {
+        if (!canShoot)
+        {
+            bulletCooldownCounter++;
+            if (bulletCooldownCounter >= bulletCooldown)
+            {
+                canShoot = true;
+                bulletCooldownCounter = 0;
+            }
+        }
+    }
 
     public void LevelUp(Action callback = null)
     {
@@ -42,6 +58,8 @@ public class PlayerShooter : MonoBehaviour
     {
         if (context.started)
         {
+            if (!canShoot) return;
+            canShoot = false;
             animator.SetTrigger("Shoot");
             foreach (ShootOptions shootOption in shootOptions)
             {

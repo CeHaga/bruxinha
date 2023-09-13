@@ -16,13 +16,11 @@ public class HealthManager : MonoBehaviour
     private bool isDying;
     [SerializeField] private UpdateLifeCountEvent updateLifeCountEvent;
     [SerializeField] private UnityEvent OnLoseHealth;
+    [SerializeField] private GameObject[] colliders;
 
     [Header("Damage")]
     [SerializeField] private int damage;
     [SerializeField] private bool isFragile;
-
-    [Header("Collision")]
-    [SerializeField] private string[] collisionTags;
 
     [Header("Blinking")]
     private SpriteRenderer spriteRenderer;
@@ -34,17 +32,6 @@ public class HealthManager : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    public void Init(int maxHealth, float invincibleTime, int damage, bool isFragile, string[] collisionTags, float blinkingInterval)
-    {
-        this.maxHealth = maxHealth;
-        this.invincibleTime = invincibleTime;
-        this.damage = damage;
-        this.isFragile = isFragile;
-        this.collisionTags = collisionTags;
-        this.blinkingInterval = blinkingInterval;
-        ResetHealth();
-    }
-
     public void ResetHealth()
     {
         currentHealth = maxHealth;
@@ -52,6 +39,10 @@ public class HealthManager : MonoBehaviour
         invincibleTimer = 0;
         isDying = false;
         updateLifeCountEvent?.Invoke(maxHealth);
+        foreach (GameObject collider in colliders)
+        {
+            collider.SetActive(true);
+        }
     }
 
     private void Update()
@@ -65,11 +56,10 @@ public class HealthManager : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void CollidedWithTag(Collider2D other)
     {
         if (isDying) return;
         if (!canTakeDamage) return;
-        if (Array.IndexOf(collisionTags, other.gameObject.tag) == -1) return;
 
         if (isFragile)
         {
@@ -77,26 +67,16 @@ public class HealthManager : MonoBehaviour
             return;
         }
 
-        HealthManager otherHealth = other.gameObject.GetComponent<HealthManager>();
-        if (otherHealth == null)
-        {
-            Debug.LogError($"No HealthManager found on {other.gameObject.name}");
-            return;
-        }
-        int takenDamage = otherHealth.damage;
-
+        int takenDamage = 1;
         TakeDamage(takenDamage);
     }
 
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        OnTriggerEnter2D(other);
-    }
 
     public void TakeDamage(int damage)
     {
         // Set current health floor 0
         currentHealth = Mathf.Max(currentHealth - damage, 0);
+        Debug.Log($"{gameObject.name} took {damage} damage and has {currentHealth} health left");
         updateLifeCountEvent?.Invoke(currentHealth);
         OnLoseHealth?.Invoke();
         if (currentHealth == 0)
@@ -104,10 +84,14 @@ public class HealthManager : MonoBehaviour
             // Debug.Log($"{gameObject.name} died");
             OnDeath.Invoke();
             isDying = true;
+            foreach (GameObject collider in colliders)
+            {
+                collider.SetActive(false);
+            }
             return;
         }
         canTakeDamage = false;
-        StartCoroutine(Blink());
+        if (blinkingInterval > 0) StartCoroutine(Blink());
     }
 
     private IEnumerator Blink()

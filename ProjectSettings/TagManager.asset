@@ -10,6 +10,9 @@ TagManager:
   - Item
   - PlayerPickup
   - PlayerScreenBound
+  - PlayerHitbox
+  - EnemyHitbox
+  - PlayerBulletHitbox
   layers:
   - Default
   - TransparentFX
