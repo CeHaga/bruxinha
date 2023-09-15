@@ -44,8 +44,8 @@
             ],
             "bindings": [
                 {
-                    "name": "WASD",
-                    "id": "55abec4f-6eb7-4bf7-b6db-ccc47b253fb6",
+                    "name": "Arrows",
+                    "id": "9df0b83f-5151-4be2-904f-77987de2cc03",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
@@ -56,8 +56,8 @@
                 },
                 {
                     "name": "up",
-                    "id": "c6057658-fd86-4959-917f-a0996d8be93b",
-                    "path": "<Keyboard>/w",
+                    "id": "3fd6f03e-6d29-4e4f-9b45-ba7778e5c1b6",
+                    "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -67,8 +67,8 @@
                 },
                 {
                     "name": "down",
-                    "id": "4733f146-7edd-4551-98f1-48ea36592e96",
-                    "path": "<Keyboard>/s",
+                    "id": "c62edf89-d290-494a-98e1-ac20b3d713b8",
+                    "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -78,8 +78,8 @@
                 },
                 {
                     "name": "left",
-                    "id": "5d6ca2be-e083-48d0-b80a-e358e5438461",
-                    "path": "<Keyboard>/a",
+                    "id": "55fa1508-427e-4391-94eb-12e1a3f76287",
+                    "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -89,8 +89,8 @@
                 },
                 {
                     "name": "right",
-                    "id": "bd61ce77-e672-4bb1-9589-81c0c5bb56a9",
-                    "path": "<Keyboard>/d",
+                    "id": "afaf30cd-797b-406d-84b9-d2795054790b",
+                    "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -101,7 +101,7 @@
                 {
                     "name": "",
                     "id": "7c5bc0dd-1d15-4400-bfe1-49285085fa00",
-                    "path": "<Keyboard>/space",
+                    "path": "<Keyboard>/z",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

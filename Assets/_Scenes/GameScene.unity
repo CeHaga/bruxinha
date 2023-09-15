@@ -4557,6 +4557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 680002961}
+  playerInput: {fileID: 604516128}
   primaryButton: {fileID: 98108148}
   pauseEvent:
     m_PersistentCalls:

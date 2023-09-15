@@ -8,10 +8,12 @@ using UnityEngine.SceneManagement;
 public class PauseMenuScript : MonoBehaviour{
     public static bool GameIsPaused = false;
     [SerializeField] private GameObject pauseMenuUI;
+    [SerializeField] private PlayerInput playerInput;
     [SerializeField] private Button primaryButton;
     [SerializeField] private PauseEvent pauseEvent;
 
     public void Resume(){
+        playerInput.enabled = true;
         pauseEvent.Invoke(false);
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
@@ -19,6 +21,7 @@ public class PauseMenuScript : MonoBehaviour{
     }
 
     public void Pause(){
+        playerInput.enabled = false;
         pauseEvent.Invoke(true);
         pauseMenuUI.SetActive(true);
         primaryButton.Select();
