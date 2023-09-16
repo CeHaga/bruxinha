@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Interactions;
 using UnityEngine.Events;
 
 [System.Serializable]
@@ -24,6 +25,7 @@ public class PlayerShooter : MonoBehaviour
     private int level = 1;
     private int bulletCooldownCounter = 0;
     private bool canShoot = true;
+    private bool isShooting;
 
     void Update()
     {
@@ -35,6 +37,9 @@ public class PlayerShooter : MonoBehaviour
                 canShoot = true;
                 bulletCooldownCounter = 0;
             }
+        }
+        if(isShooting){
+            Shoot();
         }
     }
 
@@ -57,17 +62,25 @@ public class PlayerShooter : MonoBehaviour
 
     public void OnShootBullet(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if(context.interaction is HoldInteraction && context.performed)
         {
-            if (!canShoot) return;
-            canShoot = false;
-            animator.SetTrigger("Shoot");
-            foreach (ShootOptions shootOption in shootOptions)
+            isShooting = true;
+        }
+        if(context.interaction is HoldInteraction && context.canceled)
+        {
+            isShooting = false;
+        }
+    }
+
+    public void Shoot(){
+        if (!canShoot) return;
+        canShoot = false;
+        animator.SetTrigger("Shoot");
+        foreach (ShootOptions shootOption in shootOptions)
+        {
+            if (shootOption.level <= level)
             {
-                if (shootOption.level <= level)
-                {
-                    OnShoot.Invoke(shootOption.bulletScriptable, bulletSpawnPoint.transform.position, shootOption.bulletMovementScriptable);
-                }
+                OnShoot.Invoke(shootOption.bulletScriptable, bulletSpawnPoint.transform.position, shootOption.bulletMovementScriptable);
             }
         }
     }
