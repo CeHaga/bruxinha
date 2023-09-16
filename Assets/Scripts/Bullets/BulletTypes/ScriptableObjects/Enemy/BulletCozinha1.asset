@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08b8e14081f894e46880271fc1194232, type: 3}
+  m_Name: BulletCozinha1
+  m_EditorClassIdentifier: 
+  name: Cozinha 1
+  bulletPrefab: {fileID: 4802961638685408677, guid: 83b90b58a9fe21642b98aa3ff2c04be4, type: 3}

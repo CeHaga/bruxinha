@@ -302,7 +302,7 @@ Transform:
   m_GameObject: {fileID: 178112281}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15, y: -7, z: 0}
+  m_LocalPosition: {x: 20, y: -7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -962,11 +962,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletScriptables:
   - {fileID: 11400000, guid: 556528bc6cdcbe34a86b05dab862508a, type: 2}
-  - {fileID: 11400000, guid: cf0fdd0497110b54c96f7878fce257ae, type: 2}
   - {fileID: 11400000, guid: b50129c63b579174d88e87e06164a119, type: 2}
   - {fileID: 11400000, guid: 23747dd4cec0fb7409dc56a818885e02, type: 2}
   - {fileID: 11400000, guid: d1fa22e68356fbc47b101cde0bce25a9, type: 2}
   - {fileID: 11400000, guid: 80af82db73109c44297ff852ee6fad96, type: 2}
+  - {fileID: 11400000, guid: 2a15528c87cfcb14f8db0baf064864c7, type: 2}
+  - {fileID: 11400000, guid: 00f66b00e3a56414492b2b4b1df53dde, type: 2}
+  - {fileID: 11400000, guid: b3bad2e7d5f79b44991f5febecdbbb35, type: 2}
+  - {fileID: 11400000, guid: adc8a33fdaea463498587916ab53f784, type: 2}
+  - {fileID: 11400000, guid: cbd5b3b54bc6dcc42836c88d135b12cc, type: 2}
+  - {fileID: 11400000, guid: bc50af9ad734d454bb24db95aaa9581d, type: 2}
+  - {fileID: 11400000, guid: f681789c32e5a4e41bf7b6fd19ab4e53, type: 2}
+  - {fileID: 11400000, guid: e0f98466575c34d44b11db1fd122dd25, type: 2}
+  - {fileID: 11400000, guid: e59570a9cf15de64cb1c0c128357c5e9, type: 2}
 --- !u!1 &513804258
 GameObject:
   m_ObjectHideFlags: 0
@@ -1401,20 +1409,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxLevel: 3
-  bulletCooldown: 0
+  bulletCooldown: 30
   bulletSpawnPoint: {fileID: 178112281}
   animator: {fileID: 604516130}
   shootOptions:
   - bulletScriptable: {fileID: 11400000, guid: 556528bc6cdcbe34a86b05dab862508a, type: 2}
     level: 1
+    bulletMovementScriptable: {fileID: 11400000, guid: 57024b6892a0e714fb1af17e6019e341, type: 2}
   - bulletScriptable: {fileID: 11400000, guid: b50129c63b579174d88e87e06164a119, type: 2}
     level: 2
+    bulletMovementScriptable: {fileID: 11400000, guid: 01512af3fb9cf454fbd6f5bbd00a5cf7, type: 2}
   - bulletScriptable: {fileID: 11400000, guid: 23747dd4cec0fb7409dc56a818885e02, type: 2}
     level: 2
+    bulletMovementScriptable: {fileID: 11400000, guid: 3e6af307f14538b4b893242c43843b4a, type: 2}
   - bulletScriptable: {fileID: 11400000, guid: d1fa22e68356fbc47b101cde0bce25a9, type: 2}
     level: 3
+    bulletMovementScriptable: {fileID: 11400000, guid: e4f50ba395e67114f91822c25748457a, type: 2}
   - bulletScriptable: {fileID: 11400000, guid: 80af82db73109c44297ff852ee6fad96, type: 2}
     level: 3
+    bulletMovementScriptable: {fileID: 11400000, guid: cedafec932225f744aca1eec2fe87181, type: 2}
   OnShoot:
     m_PersistentCalls:
       m_Calls:
@@ -1565,7 +1578,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  scoreOnFullHeal: 3
+  scoreOnFullHeal: 1500
   OnPickBomb:
     m_PersistentCalls:
       m_Calls:
@@ -1581,7 +1594,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  scoreOnFullBomb: 3
+  scoreOnFullBomb: 1500
   OnShootUpgrade:
     m_PersistentCalls:
       m_Calls:
@@ -1597,7 +1610,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  scoreOnFullShootUpgrade: 3
+  scoreOnFullShootUpgrade: 1500
   OnScoreGained:
     m_PersistentCalls:
       m_Calls:
@@ -1826,13 +1839,15 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   enemySpawnOptions:
-  - canSpawn: 0
-    enemyPattern: {fileID: 11400000, guid: 221a5111e43b9ed4bbfbdb74100dba08, type: 2}
   - canSpawn: 1
-    enemyPattern: {fileID: 11400000, guid: 0f40d6eadad3dd242954735e16331224, type: 2}
+    enemyPattern: {fileID: 11400000, guid: 6f624d644d8d6444f8a7e7e53cef1a93, type: 2}
+  - canSpawn: 1
+    enemyPattern: {fileID: 11400000, guid: 16103e35dd8ec814ca82b684124ed7aa, type: 2}
+  - canSpawn: 1
+    enemyPattern: {fileID: 11400000, guid: 91f5622efa8e547458f458c2fdbba478, type: 2}
   spawnInterval: 250
-  spawnMultiplierBonus: 0.2
-  maxSpawnMultiplier: 2
+  spawnMultiplierBonus: 0.1
+  maxSpawnMultiplier: 2.5
   OnItemSpawn:
     m_PersistentCalls:
       m_Calls:
@@ -2151,7 +2166,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 6.547367, y: -3.3872824}
+  m_Offset: {x: 6.547367, y: -1.4594507}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2162,7 +2177,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.080925, y: 5.1308327}
+  m_Size: {x: 6.080925, y: 8.986496}
   m_EdgeRadius: 0
 --- !u!114 &728643927
 MonoBehaviour:
@@ -2654,7 +2669,7 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 1
+            m_IntArgument: 500
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -2672,7 +2687,7 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 3
+            m_IntArgument: 1500
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0

@@ -21,10 +21,11 @@ public struct EnemyState
 public abstract class EnemyController : MonoBehaviour
 {
 
-	private Action<BulletScriptable, Vector2> OnShoot;
+	private Action<BulletScriptable, Vector2, BulletMovementScriptable> OnShoot;
 	private bool canShoot;
 	private BulletScriptable[] bulletScriptables;
 	private float shootInterval;
+	private BulletMovementScriptable bulletMovementScriptable;
 
 	public Action ResetHealth;
 	private Action<EnemyController, bool> onEnemyKilled;
@@ -51,8 +52,9 @@ public abstract class EnemyController : MonoBehaviour
 		canShoot = false;
 	}
 
-	public void OnCreateObject(Action<EnemyController, bool> onEnemyKilled, Action<BulletScriptable, Vector2> OnShoot, BulletScriptable[] bulletScriptables, float shootInterval,
-	AnimationClip idle, AnimationClip flying, AnimationClip dying, Action ResetHealth, Func<bool> onGamePaused)
+	public void OnCreateObject(Action<EnemyController, bool> onEnemyKilled, Action<BulletScriptable, Vector2, BulletMovementScriptable> OnShoot,
+		BulletScriptable[] bulletScriptables, float shootInterval, AnimationClip idle, AnimationClip flying, AnimationClip dying, Action ResetHealth,
+		Func<bool> onGamePaused, BulletMovementScriptable bulletMovementScriptable)
 	{
 		this.onEnemyKilled = onEnemyKilled;
 		this.OnShoot = OnShoot;
@@ -63,24 +65,23 @@ public abstract class EnemyController : MonoBehaviour
 		this.dying = dying;
 		this.ResetHealth = ResetHealth;
 		this.onGamePaused = onGamePaused;
+		this.bulletMovementScriptable = bulletMovementScriptable;
 	}
 
 	public void OnReuseObject()
 	{
 		transform.position = new Vector2(256, 256);
 		isDying = false;
-		//t0 = Time.frameCount;
 		t = 0;
 		ChangeCollisions(true);
 		ResetHealth?.Invoke();
-		InvokeRepeating("Shoot", 0, shootInterval);
+		InvokeRepeating("Shoot", 0.1f, shootInterval);
 	}
 
 	private void Update()
 	{
-		if(onGamePaused()) return;
+		if (onGamePaused()) return;
 		if (isDying) return;
-		//float t = Time.frameCount - t0;
 		EnemyState state = Move(t);
 		t++;
 		if (state.position != null)
@@ -108,12 +109,15 @@ public abstract class EnemyController : MonoBehaviour
 
 	private void Shoot()
 	{
+		Debug.Log("canShoot: " + canShoot);
 		if (!canShoot) return;
+		Debug.Log("bulletScriptables.Length: " + bulletScriptables.Length);
 		if (bulletScriptables.Length == 0) return;
 
 		int index = UnityEngine.Random.Range(0, bulletScriptables.Length);
+		Debug.Log("index: " + index);
 		BulletScriptable bulletScriptable = bulletScriptables[index];
-		OnShoot?.Invoke(bulletScriptable, transform.position);
+		OnShoot?.Invoke(bulletScriptable, transform.position, bulletMovementScriptable);
 	}
 
 	public void OnPlayerKill()
