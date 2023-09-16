@@ -39,11 +39,11 @@ public class BulletSpawner : MonoBehaviour
         }, false, size, maxSize);
     }
 
-    public void Shoot(BulletScriptable bulletScriptable, Vector2 startPosition)
+    public void Shoot(BulletScriptable bulletScriptable, Vector2 startPosition, BulletMovementScriptable bulletMovementScriptable)
     {
         int bulletIndex = System.Array.IndexOf(bulletScriptables, bulletScriptable);
         BulletController bullet = bulletPools[bulletIndex].Get();
-        bullet.OnReuseObject(startPosition);
+        bullet.OnReuseObject(startPosition, bulletMovementScriptable);
     }
 
     private void BulletHit(BulletController bullet, int bulletType)
@@ -51,7 +51,8 @@ public class BulletSpawner : MonoBehaviour
         bulletPools[bulletType].Release(bullet);
     }
 
-    public void PauseBullets(bool isGamePaused){
+    public void PauseBullets(bool isGamePaused)
+    {
         this.isGamePaused = isGamePaused;
     }
 }

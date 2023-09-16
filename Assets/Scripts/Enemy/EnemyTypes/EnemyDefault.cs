@@ -12,6 +12,7 @@ public class EnemyDefault : ScriptableObject
     [Header("Controller")]
     public BulletScriptable[] bulletScriptables;
     public float shootInterval;
+    public BulletMovementScriptable bulletMovementScriptable;
 
     [Header("Animations")]
     public AnimationClip idle;

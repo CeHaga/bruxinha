@@ -10,6 +10,7 @@ public struct ShootOptions
 {
     public BulletScriptable bulletScriptable;
     public int level;
+    public BulletMovementScriptable bulletMovementScriptable;
 }
 public class PlayerShooter : MonoBehaviour
 {
@@ -65,7 +66,7 @@ public class PlayerShooter : MonoBehaviour
             {
                 if (shootOption.level <= level)
                 {
-                    OnShoot.Invoke(shootOption.bulletScriptable, bulletSpawnPoint.transform.position);
+                    OnShoot.Invoke(shootOption.bulletScriptable, bulletSpawnPoint.transform.position, shootOption.bulletMovementScriptable);
                 }
             }
         }

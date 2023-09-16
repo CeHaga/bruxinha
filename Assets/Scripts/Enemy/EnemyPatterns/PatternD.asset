@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cfec43c1dd32e04284b2bd6b31055dc, type: 3}
+  m_Name: PatternD
+  m_EditorClassIdentifier: 
+  patternData:
+  - spawnTime: 0
+    enemyDefault: {fileID: 11400000, guid: 5c9639e07dbfc6b49834ecc185eb15de, type: 2}
+  - spawnTime: 10
+    enemyDefault: {fileID: 11400000, guid: 5c9639e07dbfc6b49834ecc185eb15de, type: 2}
+  - spawnTime: 20
+    enemyDefault: {fileID: 11400000, guid: 5c9639e07dbfc6b49834ecc185eb15de, type: 2}
+  - spawnTime: 30
+    enemyDefault: {fileID: 11400000, guid: 5c9639e07dbfc6b49834ecc185eb15de, type: 2}
+  - spawnTime: 40
+    enemyDefault: {fileID: 11400000, guid: 5c9639e07dbfc6b49834ecc185eb15de, type: 2}
+  - spawnTime: 180
+    enemyDefault: {fileID: 11400000, guid: 47d46d3a889c8f7459933b8587b46e5c, type: 2}
+  - spawnTime: 190
+    enemyDefault: {fileID: 11400000, guid: 47d46d3a889c8f7459933b8587b46e5c, type: 2}
+  - spawnTime: 200
+    enemyDefault: {fileID: 11400000, guid: 47d46d3a889c8f7459933b8587b46e5c, type: 2}
+  - spawnTime: 210
+    enemyDefault: {fileID: 11400000, guid: 47d46d3a889c8f7459933b8587b46e5c, type: 2}
+  - spawnTime: 220
+    enemyDefault: {fileID: 11400000, guid: 47d46d3a889c8f7459933b8587b46e5c, type: 2}
+  - spawnTime: 360
+    enemyDefault: {fileID: 11400000, guid: 9e13ad93b873af24abc341a95a3694e7, type: 2}
+  - spawnTime: 370
+    enemyDefault: {fileID: 11400000, guid: 9e13ad93b873af24abc341a95a3694e7, type: 2}
+  - spawnTime: 380
+    enemyDefault: {fileID: 11400000, guid: 9e13ad93b873af24abc341a95a3694e7, type: 2}
+  - spawnTime: 390
+    enemyDefault: {fileID: 11400000, guid: 9e13ad93b873af24abc341a95a3694e7, type: 2}
+  - spawnTime: 400
+    enemyDefault: {fileID: 11400000, guid: 9e13ad93b873af24abc341a95a3694e7, type: 2}

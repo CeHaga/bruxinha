@@ -13,6 +13,7 @@ TagManager:
   - PlayerHitbox
   - EnemyHitbox
   - PlayerBulletHitbox
+  - EnemyBulletHitbox
   layers:
   - Default
   - TransparentFX
