@@ -62,7 +62,7 @@ public class PlayerShooter : MonoBehaviour
 
     public void OnShootBullet(InputAction.CallbackContext context)
     {
-        if(context.interaction is HoldInteraction && context.performed)
+        if(context.interaction is HoldInteraction && context.started)
         {
             isShooting = true;
         }
