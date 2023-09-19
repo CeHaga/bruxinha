@@ -44,7 +44,7 @@ public class EnemySpawner : MonoBehaviour
     private int totalEnemies;
     private int currentEnemy;
     private float waitingTime;
-    private bool isBetweenPatterns = false;
+    private bool isBetweenPatterns;
 
     private void Start()
     {
@@ -59,6 +59,9 @@ public class EnemySpawner : MonoBehaviour
                 enemyPool[i][j] = createObjectPool(validSpawnOptions[i].enemyPattern.patternData[j], i, j, 1, 5);
             }
         }
+
+        waitingTime = spawnInterval / spawnMultiplier;
+        isBetweenPatterns = true;
     }
 
     private void Update()
