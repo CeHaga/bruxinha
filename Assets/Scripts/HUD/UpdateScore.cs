@@ -11,6 +11,7 @@ public class UpdateScore : MonoBehaviour
     public void AddScore(int value)
     {
         score += value;
+        score = Mathf.Clamp(score, 0, 999999999);
         UpdateText();
     }
 
