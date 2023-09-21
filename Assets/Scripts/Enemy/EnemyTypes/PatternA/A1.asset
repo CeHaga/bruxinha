@@ -21,10 +21,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b3bad2e7d5f79b44991f5febecdbbb35, type: 2}
   shootInterval: 1.5
   bulletMovementScriptable: {fileID: 11400000, guid: a976e279826e8c04eae439aec55730ed, type: 2}
-<<<<<<< HEAD
-  speed: 0.8
-=======
->>>>>>> parent of 6a62dde (Speed modifiable in editor)
   idle: {fileID: 0}
   flying: {fileID: 7400000, guid: 5a721937317eb1c459560f845e885b4e, type: 2}
   dying: {fileID: 7400000, guid: cce370abb00523b48935f6fa19b8a83d, type: 2}
