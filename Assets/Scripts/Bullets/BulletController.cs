@@ -13,6 +13,7 @@ public class BulletController : MonoBehaviour
     private Vector2 startPosition;
     private Action<BulletController> onBulletHit;
     private BulletMovementScriptable bulletMovementScriptable;
+    private float speed;
 
     private Func<bool> onGamePaused;
 
@@ -28,19 +29,20 @@ public class BulletController : MonoBehaviour
         this.onGamePaused = onGamePaused;
     }
 
-    public void OnReuseObject(Vector2 startPosition, BulletMovementScriptable bulletMovementScriptable)
+    public void OnReuseObject(Vector2 startPosition, BulletMovementScriptable bulletMovementScriptable, float speed)
     {
         t = 0;
         this.startPosition = startPosition;
         transform.position = startPosition;
         this.bulletMovementScriptable = bulletMovementScriptable;
+        this.speed = speed;
         ResetHealth?.Invoke();
     }
 
     private void Update()
     {
         if (onGamePaused()) return;
-        Vector2 position = bulletMovementScriptable.Move(t) + startPosition;
+        Vector2 position = bulletMovementScriptable.Move(t, speed) + startPosition;
         t++;
         if (position.x > 120 || position.x < -120 || position.y > 80 || position.y < -80)
         {

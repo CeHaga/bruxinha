@@ -1841,11 +1841,11 @@ MonoBehaviour:
   enemySpawnOptions:
   - canSpawn: 1
     enemyPattern: {fileID: 11400000, guid: 6f624d644d8d6444f8a7e7e53cef1a93, type: 2}
-  - canSpawn: 1
+  - canSpawn: 0
     enemyPattern: {fileID: 11400000, guid: 16103e35dd8ec814ca82b684124ed7aa, type: 2}
-  - canSpawn: 1
+  - canSpawn: 0
     enemyPattern: {fileID: 11400000, guid: 91f5622efa8e547458f458c2fdbba478, type: 2}
-  spawnInterval: 250
+  spawnInterval: 0
   spawnMultiplierBonus: 0.1
   maxSpawnMultiplier: 2.5
   OnItemSpawn:
