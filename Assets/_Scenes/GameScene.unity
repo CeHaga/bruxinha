@@ -1579,7 +1579,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  scoreOnFullHeal: 15
+  scoreOnFullHeal: 200
   OnPickBomb:
     m_PersistentCalls:
       m_Calls:
@@ -1595,7 +1595,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  scoreOnFullBomb: 15
+  scoreOnFullBomb: 200
   OnShootUpgrade:
     m_PersistentCalls:
       m_Calls:
@@ -1611,7 +1611,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  scoreOnFullShootUpgrade: 15
+  scoreOnFullShootUpgrade: 200
   OnScoreGained:
     m_PersistentCalls:
       m_Calls:
@@ -2670,7 +2670,7 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 5
+            m_IntArgument: 50
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -2688,7 +2688,7 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 15
+            m_IntArgument: 200
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
