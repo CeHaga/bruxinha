@@ -19,7 +19,3 @@ MonoBehaviour:
     enemyDefault: {fileID: 11400000, guid: 9e61d9d1baf39974f8d90884d90a81ec, type: 2}
   - spawnTime: 120
     enemyDefault: {fileID: 11400000, guid: 62e7ec939871550428d8c2f3ee4da2dd, type: 2}
-  - spawnTime: 180
-    enemyDefault: {fileID: 11400000, guid: 2ef182b73abd71240a3b4f1302efbd94, type: 2}
-  - spawnTime: 240
-    enemyDefault: {fileID: 11400000, guid: 9e61d9d1baf39974f8d90884d90a81ec, type: 2}

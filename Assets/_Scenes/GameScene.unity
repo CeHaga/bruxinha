@@ -1410,7 +1410,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxLevel: 3
   bulletCooldown: 30
-  speed: 1
   bulletSpawnPoint: {fileID: 178112281}
   animator: {fileID: 604516130}
   shootOptions:
@@ -1847,7 +1846,7 @@ MonoBehaviour:
   - canSpawn: 1
     enemyPattern: {fileID: 11400000, guid: 91f5622efa8e547458f458c2fdbba478, type: 2}
   spawnInterval: 250
-  spawnMultiplierBonus: 0.1
+  spawnMultiplierBonus: 0.18
   maxSpawnMultiplier: 2.5
   OnItemSpawn:
     m_PersistentCalls:
@@ -2914,7 +2913,6 @@ MonoBehaviour:
   m_TrackedDevicePositionAction: {fileID: 0}
   m_TrackedDeviceOrientationAction: {fileID: 0}
   m_DeselectOnBackgroundClick: 0
-
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
 --- !u!114 &1066295721
