@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Cozinheiro A1
   prefab: {fileID: 5622947207983978964, guid: 56421501c70baf749a5926f04b704d4e, type: 3}
-  score: 1000
+  score: 10
   bulletScriptables:
   - {fileID: 11400000, guid: 2a15528c87cfcb14f8db0baf064864c7, type: 2}
   - {fileID: 11400000, guid: 00f66b00e3a56414492b2b4b1df53dde, type: 2}

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Princesa
   prefab: {fileID: 2845839429644408862, guid: 54857e9cfae9e6147b623695f8ab28de, type: 3}
-  score: 500
+  score: 5
   bulletScriptables:
   - {fileID: 11400000, guid: f681789c32e5a4e41bf7b6fd19ab4e53, type: 2}
   - {fileID: 11400000, guid: e0f98466575c34d44b11db1fd122dd25, type: 2}

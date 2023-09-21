@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Disco 1
   prefab: {fileID: 2419008262053412328, guid: 9c7d6015725c9cd48a8d2290ea17fb86, type: 3}
-  score: 500
+  score: 5
   bulletScriptables:
   - {fileID: 11400000, guid: adc8a33fdaea463498587916ab53f784, type: 2}
   - {fileID: 11400000, guid: cbd5b3b54bc6dcc42836c88d135b12cc, type: 2}
