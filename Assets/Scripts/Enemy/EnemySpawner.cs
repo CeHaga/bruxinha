@@ -125,13 +125,12 @@ public class EnemySpawner : MonoBehaviour
 
             enemyController.OnCreateObject(
                 (enemy, playerKill) => KillEnemy(enemy, patternIndex, enemyIndex, enemyDefault, playerKill),
-                (bulletScriptable, position, bulletMovementScriptable, speed) => OnShoot.Invoke(bulletScriptable, position, bulletMovementScriptable, speed),
+                (bulletScriptable, position, bulletMovementScriptable) => OnShoot.Invoke(bulletScriptable, position, bulletMovementScriptable),
                 enemyDefault.bulletScriptables,
                 enemyDefault.shootInterval,
                 enemyDefault.idle,
                 enemyDefault.flying,
                 enemyDefault.dying,
-                enemyDefault.speed,
                 () => healthManager.ResetHealth(),
                 () => isGamePaused,
                 enemyDefault.bulletMovementScriptable

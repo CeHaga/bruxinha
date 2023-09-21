@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ec450be3c126744a2f9f92c4a65ffc, type: 3}
+  m_Name: Weird_40
+  m_EditorClassIdentifier: 
+  enemyName: Amogo Azul
+  prefab: {fileID: 4380216571297338205, guid: baaa4de08855ce2448bf08e9fed7333d, type: 3}
+  score: 5
+  bulletScriptables:
+  - {fileID: 11400000, guid: cf0fdd0497110b54c96f7878fce257ae, type: 2}
+  shootInterval: 1
+  idle: {fileID: 7400000, guid: 47b30c4e807e0944cbaeec86e16c7b99, type: 2}
+  flying: {fileID: 7400000, guid: 47b30c4e807e0944cbaeec86e16c7b99, type: 2}
+  dying: {fileID: 7400000, guid: cce370abb00523b48935f6fa19b8a83d, type: 2}

@@ -21,7 +21,7 @@ public struct EnemyState
 public abstract class EnemyController : MonoBehaviour
 {
 
-	private Action<BulletScriptable, Vector2, BulletMovementScriptable, float> OnShoot;
+	private Action<BulletScriptable, Vector2, BulletMovementScriptable> OnShoot;
 	private bool canShoot;
 	private BulletScriptable[] bulletScriptables;
 	private float shootInterval;
@@ -39,7 +39,6 @@ public abstract class EnemyController : MonoBehaviour
 	private int t;
 	private bool isDying;
 	private float yOffset;
-	private float speed;
 
 	protected AnimationClip idle;
 	protected AnimationClip flying;
@@ -53,9 +52,9 @@ public abstract class EnemyController : MonoBehaviour
 		canShoot = false;
 	}
 
-	public void OnCreateObject(Action<EnemyController, bool> onEnemyKilled, Action<BulletScriptable, Vector2, BulletMovementScriptable, float> OnShoot,
-		BulletScriptable[] bulletScriptables, float shootInterval, AnimationClip idle, AnimationClip flying, AnimationClip dying, float speed,
-		Action ResetHealth, Func<bool> onGamePaused, BulletMovementScriptable bulletMovementScriptable)
+	public void OnCreateObject(Action<EnemyController, bool> onEnemyKilled, Action<BulletScriptable, Vector2, BulletMovementScriptable> OnShoot,
+		BulletScriptable[] bulletScriptables, float shootInterval, AnimationClip idle, AnimationClip flying, AnimationClip dying, Action ResetHealth,
+		Func<bool> onGamePaused, BulletMovementScriptable bulletMovementScriptable)
 	{
 		this.onEnemyKilled = onEnemyKilled;
 		this.OnShoot = OnShoot;
@@ -64,7 +63,6 @@ public abstract class EnemyController : MonoBehaviour
 		this.idle = idle;
 		this.flying = flying;
 		this.dying = dying;
-		this.speed = speed;
 		this.ResetHealth = ResetHealth;
 		this.onGamePaused = onGamePaused;
 		this.bulletMovementScriptable = bulletMovementScriptable;
@@ -84,7 +82,7 @@ public abstract class EnemyController : MonoBehaviour
 	{
 		if (onGamePaused()) return;
 		if (isDying) return;
-		EnemyState state = Move(t, speed);
+		EnemyState state = Move(t);
 		t++;
 		if (state.position != null)
 		{
@@ -119,7 +117,7 @@ public abstract class EnemyController : MonoBehaviour
 		int index = UnityEngine.Random.Range(0, bulletScriptables.Length);
 		Debug.Log("index: " + index);
 		BulletScriptable bulletScriptable = bulletScriptables[index];
-		OnShoot?.Invoke(bulletScriptable, transform.position, bulletMovementScriptable, speed);
+		OnShoot?.Invoke(bulletScriptable, transform.position, bulletMovementScriptable);
 	}
 
 	public void OnPlayerKill()
@@ -132,5 +130,5 @@ public abstract class EnemyController : MonoBehaviour
 		collider2d.enabled = enabled;
 	}
 
-	public abstract EnemyState Move(float t, float speed);
+	public abstract EnemyState Move(float t);
 }

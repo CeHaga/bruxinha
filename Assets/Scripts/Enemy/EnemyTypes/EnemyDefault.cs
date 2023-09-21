@@ -13,7 +13,6 @@ public class EnemyDefault : ScriptableObject
     public BulletScriptable[] bulletScriptables;
     public float shootInterval;
     public BulletMovementScriptable bulletMovementScriptable;
-    public float speed = 1;
 
     [Header("Animations")]
     public AnimationClip idle;

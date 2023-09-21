@@ -17,7 +17,6 @@ public class PlayerShooter : MonoBehaviour
 {
     [SerializeField] private int maxLevel;
     [SerializeField] private int bulletCooldown;
-    [SerializeField] private float speed = 1;
     [SerializeField] private GameObject bulletSpawnPoint;
     [SerializeField] private Animator animator;
     [SerializeField] private ShootOptions[] shootOptions;
@@ -39,8 +38,7 @@ public class PlayerShooter : MonoBehaviour
                 bulletCooldownCounter = 0;
             }
         }
-        if (isShooting)
-        {
+        if(isShooting){
             Shoot();
         }
     }
@@ -64,18 +62,17 @@ public class PlayerShooter : MonoBehaviour
 
     public void OnShootBullet(InputAction.CallbackContext context)
     {
-        if (context.interaction is HoldInteraction && context.started)
+        if(context.interaction is HoldInteraction && context.started)
         {
             isShooting = true;
         }
-        if (context.interaction is HoldInteraction && context.canceled)
+        if(context.interaction is HoldInteraction && context.canceled)
         {
             isShooting = false;
         }
     }
 
-    public void Shoot()
-    {
+    public void Shoot(){
         if (!canShoot) return;
         canShoot = false;
         animator.SetTrigger("Shoot");
@@ -83,7 +80,7 @@ public class PlayerShooter : MonoBehaviour
         {
             if (shootOption.level <= level)
             {
-                OnShoot.Invoke(shootOption.bulletScriptable, bulletSpawnPoint.transform.position, shootOption.bulletMovementScriptable, speed);
+                OnShoot.Invoke(shootOption.bulletScriptable, bulletSpawnPoint.transform.position, shootOption.bulletMovementScriptable);
             }
         }
     }
