@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private float speed = 5f;
 	[SerializeField] private AnimationClip dying;
 	[SerializeField] private GameOverEvent gameOverEvent;
+	[SerializeField] private PlayerInput playerInput;
 
 	private Rigidbody2D rb;
 	private Animator animator;
@@ -45,6 +46,7 @@ public class PlayerController : MonoBehaviour
 	{
 		rb.velocity = Vector2.zero;
 		isDying = true;
+		playerInput.enabled = false;
 		StartCoroutine(PlayDyingAnimation());
 	}
 
