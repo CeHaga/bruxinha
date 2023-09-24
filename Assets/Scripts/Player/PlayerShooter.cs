@@ -75,6 +75,7 @@ public class PlayerShooter : MonoBehaviour
     public void Shoot(){
         if (!canShoot) return;
         canShoot = false;
+		AudioManager.Instance.Play("SFX_PlayerBullet");
         animator.SetTrigger("Shoot");
         foreach (ShootOptions shootOption in shootOptions)
         {

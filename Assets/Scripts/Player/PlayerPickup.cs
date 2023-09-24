@@ -13,23 +13,23 @@ public class PlayerPickup : MonoBehaviour
     [SerializeField] private int scoreOnFullShootUpgrade;
     public UpdateScoreCountEvent OnScoreGained;
 
-    public void PickUpHeal()
-    {
+    public void PickUpHeal(){
+		AudioManager.Instance.Play("SFX_PickUpHeal");
         OnHeal?.Invoke(1, () => PickUpScore(scoreOnFullHeal));
     }
 
-    public void PickUpBomb()
-    {
+    public void PickUpBomb(){
+		AudioManager.Instance.Play("SFX_PickUpUpgrade");
         OnPickBomb?.Invoke(1, () => PickUpScore(scoreOnFullBomb));
     }
 
-    public void PickUpShootUpgrade()
-    {
+    public void PickUpShootUpgrade(){
+		AudioManager.Instance.Play("SFX_PickUpUpgrade");
         OnShootUpgrade?.Invoke(() => PickUpScore(scoreOnFullShootUpgrade));
     }
 
-    public void PickUpScore(int score)
-    {
+    public void PickUpScore(int score){
+		AudioManager.Instance.Play("SFX_PickUpScore");
         OnScoreGained?.Invoke(score);
     }
 }

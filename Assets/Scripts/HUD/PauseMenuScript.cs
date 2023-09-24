@@ -11,12 +11,15 @@ public class PauseMenuScript : MonoBehaviour{
     [SerializeField] private PlayerInput playerInput;
     [SerializeField] private Button primaryButton;
     [SerializeField] private PauseEvent pauseEvent;
+    [SerializeField] private GameObject myEventSystem;
 
     public void Resume(){
         playerInput.enabled = true;
         pauseEvent.Invoke(false);
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
+        myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
+		AudioManager.Instance.Play("SFX_ButtonClick");
         GameIsPaused = false;
     }
 
@@ -32,6 +35,7 @@ public class PauseMenuScript : MonoBehaviour{
     public void GoToMenu(){
         GameIsPaused = false;
         Time.timeScale = 1f;
+		AudioManager.Instance.Play("SFX_ButtonClick");
         SceneManager.LoadScene("MainMenu");
         Debug.Log("Menu");
     }

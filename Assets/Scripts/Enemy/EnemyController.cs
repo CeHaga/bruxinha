@@ -122,6 +122,7 @@ public abstract class EnemyController : MonoBehaviour
 
 	public void OnPlayerKill()
 	{
+		AudioManager.Instance.Play("SFX_EnemyDeath");
 		StartCoroutine(PlayDyingAnimation(dying, true));
 	}
 

@@ -38,6 +38,7 @@ public class SpecialAttack : MonoBehaviour
         // Debug.Log("BOOM!");
         OnExplosion("Enemy");
         OnExplosion("EnemyBullet");
+		AudioManager.Instance.Play("SFX_Bomb");
         this.gameObject.SetActive(false);
     }
 

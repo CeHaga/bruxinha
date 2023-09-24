@@ -23,12 +23,14 @@ public class GameOverMenuScript : MonoBehaviour{
     }
 
     public void Restart(){
+		AudioManager.Instance.Play("SFX_ButtonClick");
         Time.timeScale = 1f;
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
     }
 
     public void GoToMenu(){
+		AudioManager.Instance.Play("SFX_ButtonClick");
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
         Debug.Log("Menu");
