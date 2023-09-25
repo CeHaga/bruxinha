@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private string musicToPlay;
     void Start()
     {
         Application.targetFrameRate = 60;
+        if (musicToPlay != "") AudioManager.Instance.Play(musicToPlay);
     }
 }
