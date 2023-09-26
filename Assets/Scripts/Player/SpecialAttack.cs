@@ -5,6 +5,8 @@ using UnityEngine;
 public class SpecialAttack : MonoBehaviour
 {
     [SerializeField] private float secondsToExplode;
+    [SerializeField] private GameObject whiteScreen;
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     private GameObject[] enemies;
     private HealthManager healthManager;
@@ -19,6 +21,7 @@ public class SpecialAttack : MonoBehaviour
     }
     private void OnEnable()
     {
+        spriteRenderer.enabled = true;
         t = 0;
         startPosition = transform.position;
         StartCoroutine(BombTimer());
@@ -39,6 +42,14 @@ public class SpecialAttack : MonoBehaviour
         OnExplosion("Enemy");
         OnExplosion("EnemyBullet");
 		AudioManager.Instance.Play("SFX_BombExplosion");
+        whiteScreen.SetActive(true);
+        spriteRenderer.enabled = false;
+        yield return new WaitForSeconds(0.15f);
+        whiteScreen.SetActive(false);
+        yield return new WaitForSeconds(0.1f);
+        whiteScreen.SetActive(true);
+        yield return new WaitForSeconds(0.15f);
+        whiteScreen.SetActive(false);
         this.gameObject.SetActive(false);
     }
 
