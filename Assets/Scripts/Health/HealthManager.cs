@@ -10,7 +10,8 @@ public class HealthManager : MonoBehaviour
     [SerializeField] private int maxHealth;
     private int currentHealth;
     public UnityEvent OnDeath;
-    [SerializeField] private float invincibleTime;
+    [SerializeField] private float invincibleTimeDamage;
+    private float currentInvincibleTime;
     private float invincibleTimer;
     private bool canTakeDamage;
     private bool isDying;
@@ -49,7 +50,7 @@ public class HealthManager : MonoBehaviour
     {
         if (canTakeDamage) return;
         invincibleTimer += Time.deltaTime;
-        if (invincibleTimer >= invincibleTime)
+        if (invincibleTimer >= currentInvincibleTime)
         {
             canTakeDamage = true;
             invincibleTimer = 0;
@@ -90,19 +91,21 @@ public class HealthManager : MonoBehaviour
             }
             return;
         }
-        canTakeDamage = false;
-        if (blinkingInterval > 0) StartCoroutine(Blink());
+        AddInvincibleTime(invincibleTimeDamage);
+        if (blinkingInterval > 0) StartCoroutine(Blink(invincibleTimeDamage));
     }
 
-    private IEnumerator Blink()
+    private IEnumerator Blink(float blinkingMaxTime)
     {
+        float timeBlinking = 0f;
         do
         {
             spriteRenderer.enabled = false;
             yield return new WaitForSeconds(blinkingInterval);
             spriteRenderer.enabled = true;
             yield return new WaitForSeconds(blinkingInterval);
-        }while (!canTakeDamage);
+            timeBlinking += 2 * blinkingInterval;
+        } while (timeBlinking < blinkingMaxTime);
     }
 
     public void Heal(int healAmount, Action callback = null)
@@ -114,5 +117,12 @@ public class HealthManager : MonoBehaviour
         }
         currentHealth = Mathf.Min(currentHealth + healAmount, maxHealth);
         updateLifeCountEvent?.Invoke(currentHealth);
+    }
+
+    public void AddInvincibleTime(float time)
+    {
+        currentInvincibleTime = Mathf.Max(currentInvincibleTime - invincibleTimer, time);
+        invincibleTimer = 0f;
+        canTakeDamage = false;
     }
 }

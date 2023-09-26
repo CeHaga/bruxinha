@@ -124,7 +124,8 @@ MonoBehaviour:
   OnLoseHealth:
     m_PersistentCalls:
       m_Calls: []
-  colliders: []
+  colliders:
+  - {fileID: 6479175805744036675}
   damage: 1
   isFragile: 0
   blinkingInterval: 0.1
