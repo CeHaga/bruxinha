@@ -1638,6 +1638,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 8424117761509120483}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: SFX_PlayerGetHit
+          m_BoolArgument: 0
+        m_CallState: 2
   colliders: []
   damage: 0
   isFragile: 0
@@ -5363,30 +5375,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
-    - target: {fileID: 3650998395489314480, guid: 487ad719cc426df44bc14a399e1b39f3, type: 3}
-      propertyPath: sounds.Array.size
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3650998395489314480, guid: 487ad719cc426df44bc14a399e1b39f3, type: 3}
-      propertyPath: sounds.Array.data[8].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 098fc6fed3cfcb347af1a6c3f4294b71, type: 3}
-    - target: {fileID: 3650998395489314480, guid: 487ad719cc426df44bc14a399e1b39f3, type: 3}
-      propertyPath: sounds.Array.data[8].loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3650998395489314480, guid: 487ad719cc426df44bc14a399e1b39f3, type: 3}
-      propertyPath: sounds.Array.data[8].name
-      value: BGM_GameplayMusic
-      objectReference: {fileID: 0}
-    - target: {fileID: 3650998395489314480, guid: 487ad719cc426df44bc14a399e1b39f3, type: 3}
-      propertyPath: sounds.Array.data[8].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3650998395489314480, guid: 487ad719cc426df44bc14a399e1b39f3, type: 3}
-      propertyPath: sounds.Array.data[8].volume
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 6429944098083410587, guid: 487ad719cc426df44bc14a399e1b39f3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.157529
@@ -5432,6 +5420,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 487ad719cc426df44bc14a399e1b39f3, type: 3}
+--- !u!114 &8424117761509120483 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3650998395489314480, guid: 487ad719cc426df44bc14a399e1b39f3, type: 3}
+  m_PrefabInstance: {fileID: 8424117761509120482}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d57479ac37243e9458b4020389b09bef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8853394151064502393
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -36,6 +36,7 @@ public class PauseMenuScript : MonoBehaviour{
         GameIsPaused = false;
         Time.timeScale = 1f;
 		AudioManager.Instance.Play("SFX_ButtonClick");
+        AudioManager.Instance.Stop("BGM_GameplayMusic");
         SceneManager.LoadScene("MainMenu");
         Debug.Log("Menu");
     }

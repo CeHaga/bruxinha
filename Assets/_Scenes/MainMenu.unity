@@ -368,7 +368,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &357415561
 RectTransform:
   m_ObjectHideFlags: 0
@@ -385,7 +385,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.05833333, y: 0.16875002}
   m_AnchorMax: {x: 0.3666667, y: 0.28125003}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0.0000038146973}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &357415562
@@ -773,8 +773,8 @@ RectTransform:
   - {fileID: 1130036287}
   - {fileID: 1990533383}
   - {fileID: 541361729}
-  - {fileID: 357415561}
   - {fileID: 2019600431}
+  - {fileID: 357415561}
   - {fileID: 217699996}
   - {fileID: 53412613}
   m_Father: {fileID: 0}
@@ -906,30 +906,6 @@ PrefabInstance:
     - target: {fileID: 1631688236868258819, guid: 487ad719cc426df44bc14a399e1b39f3, type: 3}
       propertyPath: m_Name
       value: AudioManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 3650998395489314480, guid: 487ad719cc426df44bc14a399e1b39f3, type: 3}
-      propertyPath: sounds.Array.size
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3650998395489314480, guid: 487ad719cc426df44bc14a399e1b39f3, type: 3}
-      propertyPath: sounds.Array.data[8].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 098fc6fed3cfcb347af1a6c3f4294b71, type: 3}
-    - target: {fileID: 3650998395489314480, guid: 487ad719cc426df44bc14a399e1b39f3, type: 3}
-      propertyPath: sounds.Array.data[8].loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3650998395489314480, guid: 487ad719cc426df44bc14a399e1b39f3, type: 3}
-      propertyPath: sounds.Array.data[8].name
-      value: BGM_GameplayMusic
-      objectReference: {fileID: 0}
-    - target: {fileID: 3650998395489314480, guid: 487ad719cc426df44bc14a399e1b39f3, type: 3}
-      propertyPath: sounds.Array.data[8].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3650998395489314480, guid: 487ad719cc426df44bc14a399e1b39f3, type: 3}
-      propertyPath: sounds.Array.data[8].volume
-      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 6429944098083410587, guid: 487ad719cc426df44bc14a399e1b39f3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1667,8 +1643,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 572815958}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.05833333, y: 0.037499998}
-  m_AnchorMax: {x: 0.26250002, y: 0.14375001}
+  m_AnchorMin: {x: 0.05833333, y: 0.17500001}
+  m_AnchorMax: {x: 0.26250002, y: 0.28125003}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
@@ -1685,10 +1661,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 2
+    m_Mode: 4
     m_WrapAround: 1
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 541361730}
+    m_SelectOnDown: {fileID: 1990533384}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 2
