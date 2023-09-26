@@ -47,6 +47,8 @@ public class PlayerController : MonoBehaviour
 		rb.velocity = Vector2.zero;
 		isDying = true;
 		playerInput.enabled = false;
+        AudioManager.Instance.Stop("BGM_GameplayMusic");
+		AudioManager.Instance.Play("SFX_PlayerDeath");
 		StartCoroutine(PlayDyingAnimation());
 	}
 

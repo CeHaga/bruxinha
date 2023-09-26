@@ -11,33 +11,34 @@ public class MainMenuScript : MonoBehaviour
     [Header("Credits")]
     [SerializeField] private Button creditsButton;
     [SerializeField] private GameObject CreditsMenu;
-    void Start()
-    {
+    void Start(){
         primaryButton.Select();
     }
-    public void PlayGame()
-    {
+    public void PlayGame(){
+		AudioManager.Instance.Play("SFX_ButtonClick");
         SceneManager.LoadScene("GameScene");
     }
 
-    public void Settings()
-    {
+    public void Settings(){
+		AudioManager.Instance.Play("SFX_ButtonClick");
         Debug.Log("Ajustes");
     }
 
     public void Credits(){
+		AudioManager.Instance.Play("SFX_ButtonClick");
         creditsButton.Select();
         CreditsMenu.SetActive(true);
         Debug.Log("Créditos");
     }
 
     public void CreditsToMenu(){
+		AudioManager.Instance.Play("SFX_ButtonClick");
         primaryButton.Select();
         CreditsMenu.SetActive(false);
     }
 
-    public void QuitGame()
-    {
+    public void QuitGame(){
+		AudioManager.Instance.Play("SFX_ButtonClick");
         Debug.Log("Quit Game");
         Application.Quit();
     }

@@ -24,17 +24,15 @@ public class PlayerSpecial : MonoBehaviour
     {
         if (context.started)
         {
-            if (!bomb.activeSelf && bombCount > 0)
-            {
+            if (!bomb.activeSelf && bombCount > 0){
+        		AudioManager.Instance.Play("SFX_LaunchBomb");
                 bomb.transform.position = this.transform.position;
                 bomb.SetActive(true);
                 bombCount--;
                 onBombUsed.Invoke(bombCount);
             }
-            else
-            {
-                Debug.Log("Sem bombas ou bomba ativa");
-                //Som sinalizando que não tem como lançar uma bomba
+            else if(bombCount <= 0){
+                AudioManager.Instance.Play("SFX_OutOfBombs");
             }
         }
     }
