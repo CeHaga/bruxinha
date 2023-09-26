@@ -111,9 +111,3 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: SFX_PlayerGetHit
-    clip: {fileID: 8300000, guid: 30a076325c799164281c64e64c28afce, type: 3}
-    volume: 0.5
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
