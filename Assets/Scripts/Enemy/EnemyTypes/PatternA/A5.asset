@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ec450be3c126744a2f9f92c4a65ffc, type: 3}
+  m_Name: A5
+  m_EditorClassIdentifier: 
+  enemyName: Batata A5
+  prefab: {fileID: 2439742387977149622, guid: 81b41ae5fe774cf488f4f6f3d2461d6c, type: 3}
+  score: 10
+  bulletScriptables: []
+  shootInterval: 0
+  bulletMovementScriptable: {fileID: 0}
+  idle: {fileID: 0}
+  flying: {fileID: 7400000, guid: a000fcb87f7b911479276cf2d2559a6a, type: 2}
+  dying: {fileID: 7400000, guid: cce370abb00523b48935f6fa19b8a83d, type: 2}
