@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ec450be3c126744a2f9f92c4a65ffc, type: 3}
   m_Name: A4
   m_EditorClassIdentifier: 
-  enemyName: Batata A4
-  prefab: {fileID: 5091812403087208759, guid: 86d2568a12bcba84498f43e3b074306b, type: 3}
+  enemyName: Cozinheiro A4
+  prefab: {fileID: 5622947207983978964, guid: e3b1986f173ba5643803846ba4cb1846, type: 3}
   score: 10
-  bulletScriptables: []
-  shootInterval: 0
-  bulletMovementScriptable: {fileID: 0}
+  bulletScriptables:
+  - {fileID: 11400000, guid: 2a15528c87cfcb14f8db0baf064864c7, type: 2}
+  - {fileID: 11400000, guid: 00f66b00e3a56414492b2b4b1df53dde, type: 2}
+  - {fileID: 11400000, guid: b3bad2e7d5f79b44991f5febecdbbb35, type: 2}
+  shootInterval: 1.5
+  bulletMovementScriptable: {fileID: 11400000, guid: a976e279826e8c04eae439aec55730ed, type: 2}
   idle: {fileID: 0}
-  flying: {fileID: 7400000, guid: a000fcb87f7b911479276cf2d2559a6a, type: 2}
+  flying: {fileID: 7400000, guid: 5a721937317eb1c459560f845e885b4e, type: 2}
   dying: {fileID: 7400000, guid: cce370abb00523b48935f6fa19b8a83d, type: 2}

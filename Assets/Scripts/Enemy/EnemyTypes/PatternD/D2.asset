@@ -19,9 +19,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: adc8a33fdaea463498587916ab53f784, type: 2}
   - {fileID: 11400000, guid: cbd5b3b54bc6dcc42836c88d135b12cc, type: 2}
   - {fileID: 11400000, guid: bc50af9ad734d454bb24db95aaa9581d, type: 2}
-  shootInterval: 2
+  shootInterval: 1
   bulletMovementScriptable: {fileID: 11400000, guid: a976e279826e8c04eae439aec55730ed, type: 2}
-  speed: 0.5
   idle: {fileID: 0}
   flying: {fileID: 7400000, guid: 7e5698d14d7afef4f8de2f4545588163, type: 2}
   dying: {fileID: 7400000, guid: cce370abb00523b48935f6fa19b8a83d, type: 2}
