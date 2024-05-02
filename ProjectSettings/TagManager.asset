@@ -60,9 +60,9 @@ TagManager:
   - name: Player
     uniqueID: 81683279
     locked: 0
-  - name: HUD
-    uniqueID: 2373337365
-    locked: 0
   - name: Clouds
     uniqueID: 1628749143
+    locked: 0
+  - name: HUD
+    uniqueID: 2373337365
     locked: 0

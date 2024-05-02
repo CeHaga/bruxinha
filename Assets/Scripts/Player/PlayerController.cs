@@ -5,58 +5,68 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-	[Header("Parameters")]
-	[SerializeField] private float speed = 5f;
-	[SerializeField] private AnimationClip dying;
-	[SerializeField] private GameOverEvent gameOverEvent;
-	[SerializeField] private PlayerInput playerInput;
+    [Header("Parameters")]
+    [SerializeField]
+    private float speed = 5f;
 
-	private Rigidbody2D rb;
-	private Animator animator;
-	private Vector2 moveInput;
-	private bool isDying;
+    [SerializeField]
+    private AnimationClip dying;
 
-	private void Awake()
-	{
-		animator = GetComponent<Animator>();
-		rb = GetComponent<Rigidbody2D>();
-		isDying = false;
-	}
+    [SerializeField]
+    private GameOverEvent gameOverEvent;
 
-	private void FixedUpdate()
-	{
-		if (isDying) return;
-		// Move player
-		rb.velocity = moveInput * speed;
-		if (moveInput.x != 0 || moveInput.y != 0)
-		{
-			//animator.Play(flying.name);
-			return;
-		}
-		//animator.Play(idle.name);
-		moveInput = Vector2.zero;
-	}
+    [SerializeField]
+    private PlayerInput playerInput;
 
-	public void OnMove(InputAction.CallbackContext context)
-	{
-		moveInput = context.ReadValue<Vector2>();
-	}
+    private Rigidbody2D rb;
+    private Animator animator;
+    private Vector2 moveInput;
+    private bool isDying;
 
-	public void OnDeath()
-	{
-		rb.velocity = Vector2.zero;
-		isDying = true;
-		playerInput.enabled = false;
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+        isDying = false;
+    }
+
+    private void FixedUpdate()
+    {
+        if (isDying)
+            return;
+        // Move player
+        rb.velocity = moveInput * speed;
+        if (moveInput.x != 0 || moveInput.y != 0)
+        {
+            //animator.Play(flying.name);
+            return;
+        }
+        //animator.Play(idle.name);
+        moveInput = Vector2.zero;
+    }
+
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        moveInput = context.ReadValue<Vector2>();
+    }
+
+    public void OnDeath()
+    {
+        rb.velocity = Vector2.zero;
+        isDying = true;
+        playerInput.enabled = false;
         AudioManager.Instance.Stop("BGM_GameplayMusic");
-		AudioManager.Instance.Play("SFX_PlayerDeath");
-		StartCoroutine(PlayDyingAnimation());
-	}
+        AudioManager.Instance.Play("SFX_PlayerDeath");
+        StartCoroutine(PlayDyingAnimation());
+    }
 
-	private IEnumerator PlayDyingAnimation()
-	{
-		animator.Play(dying.name);
-		yield return new WaitForSeconds(dying.length + 0.5f);
-		Destroy(gameObject);
-		gameOverEvent.Invoke();
-	}
+    private IEnumerator PlayDyingAnimation()
+    {
+        animator.Play(dying.name);
+        yield return new WaitForSeconds(dying.length + 0.5f);
+        Debug.Log("b");
+        Destroy(gameObject);
+        Debug.Log("a");
+        gameOverEvent.Invoke();
+    }
 }

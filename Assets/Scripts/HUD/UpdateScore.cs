@@ -1,12 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class UpdateScore : MonoBehaviour
 {
-    [SerializeField] private int score;
-    [SerializeField] private Image[] digits;
+    [SerializeField]
+    private int score;
+
+    [SerializeField]
+    private Image[] digits;
+
+    [SerializeField]
+    private UpdateScoreCountEvent onHighscoreSave;
 
     public void AddScore(int value)
     {
@@ -26,4 +33,9 @@ public class UpdateScore : MonoBehaviour
         }
     }
 
+    public void SaveHighscore()
+    {
+        Debug.Log("Death: " + score);
+        onHighscoreSave?.Invoke(score);
+    }
 }

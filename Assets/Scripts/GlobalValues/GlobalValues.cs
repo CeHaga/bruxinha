@@ -15,4 +15,5 @@ public class GlobalValues : MonoBehaviour
     }
 
     public Digits[] digits;
+    public HighscoreDigits[] highscoreDigits;
 }
